@@ -1,0 +1,109 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+#logo{
+	
+font-family:Helvetica;
+font-style:bold;
+font-size:20px;
+text-shadow: 3px 3px 10px red;
+}
+
+body {
+	
+  font-family: Arial, Helvetica, sans-serif;
+}
+#body1 {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#full {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  background-color: #666;
+  padding: 25px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  font-family:Arial black;
+font-style:bold;
+
+}
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  padding-top:0px;
+ /* background:#F4F6F6 ;*/
+
+  
+}
+
+
+
+nav ul {
+  list-style-type: none;
+  padding-left:10px;
+ 
+  color: black ;
+background-color:#F4D03F  ;  /*ul heading color*/
+}/* contents navigation bar*/
+
+]#counter-list{
+color: #F7DC6F  ;			/*list elements color8*/
+}
+#selected{
+color:#E74C3C ;
+text-decoration:underline;
+text-transform: uppercase;
+font-size:bold;
+font-size:15px;
+}
+
+article {
+  float: left;
+  padding-left: 20px;
+  width: 80%;
+  background-color: #f1f1f1;
+
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+footer {
+  background-color: #777;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media screen and(max-width: 770px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+				}
+}
+
+
+/*772 the calculated width*/
+
+
+
+
+</style>

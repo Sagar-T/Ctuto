@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list">
+<li><a href="BASICCONTENTS.html" >Features of C</a></li>
+<li><a href="CSYNTAXRULES.html">C Syntax Rules</a></li>
+<li><a href="KEYWORDSANDID.html" >Keywords and Identifier</a></li>
+<li><a href="OPERATORSINC.html" >Operators in C Language</a></li>
+<li><a href="DATATYPESINC.html" >Data Types in C</a></li>
+<li><a href="VARIABLESINC.html" >Variables in C</a></li>
+<li><a href="CIO.html">C Input / Output</a></li>
+<li><a href="DECISIONMAKING.html" >Decision Making</a></li>
+<li><a href="#.html" id="selected">Switch Statement</a></li>
+<li><a href="LOOPING.html">Looping</a></li>
+</ul>
+</div>
+
+    	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+ 
+  <article>
+<h2>Switch statement in C</h2>
+<p>When you want to solve multiple option type problems, for example: Menu like program, where one value is associated with each option and you need to choose only one at a time, then, <code>switch</code> statement is used.</p>
+<p>Switch statement is a control statement that allows us to choose only one choice among the many given choices. The expression in <code>switch</code> evaluates to return an integral value, which is then compared to the values present in different cases. It executes that block of code which matches the case value. If there is no match, then <b>default</b> block is executed(if present). The general form of <code>switch</code> statement is,
+</p>
+<pre class="c"><code class="language-clike">switch(expression)
+{
+    case value-1:
+    	block-1;
+    	break;
+    case value-2:
+    	block-2;
+    	break;
+    case value-3:
+    	block-3;
+    	break;
+    case value-4:
+    	block-4;
+   	    break;
+    default:
+   	    default-block;
+    	break;
+}</code></pre>
+<br />
+<h3>Rules for using <code>switch</code> statement</h3>
+<ol class="content">
+<li>The expression (after switch keyword) must yield an <b>integer</b> value i.e the expression should be an integer or a variable or an expression that evaluates to an integer.</li>
+<li>The case <b>label</b> values must be unique.</li>
+<li>The case label must end with a colon(:)</li>
+<li>The next line, after the <b>case</b> statement, can be any valid C statement.</li>
+</ol>
+<hr />
+<h3>Points to Remember</h3>
+<ol class="content">
+<li>We don't use those expressions to evaluate switch case, which may return floating point values or strings or characters.</li>
+<li><code>break</code> statements are used to <b>exit</b> the switch block. It isn't necessary to use <code>break</code> after each block, but if you do not use it, then all the consecutive blocks of code will get executed after the matching block.
+<pre class="c"><code class="language-clike">int i = 1;
+switch(i)
+{
+    case 1:    
+        printf("A");        // No break
+    case 2:
+        printf("B");        // No break
+    case 3:
+        printf("C");
+        break;
+}</code></pre>
+<p class="output">
+A B C
+</p>
+<p>The output was supposed to be only <b>A</b> because only the first case matches, but as there is no <code>break</code> statement after that block, the next blocks are executed too, until it a <code>break</code> statement in encountered or the execution reaches the end of the <code>switch</code> block.</p></li>
+<li><b>default</b> case is executed when none of the mentioned case matches the <code>switch</code> expression. The default case can be placed anywhere in the <code>switch</code> case. Even if we don't include the default case, <code>switch</code> statement works.</li>
+<li>Nesting of <code>switch</code> statements are allowed, which means you can have <code>switch</code> statements inside another <code>switch</code> block. However, nested <code>switch</code> statements should be avoided as it makes the program more complex and less readable.</li>
+</ol>
+<hr />
+<h3>Example of <code>switch</code> statement</h3>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+void main( )
+{
+    int a, b, c, choice;
+    while(choice != 3)
+    {
+        /* Printing the available options */
+        printf("\n 1. Press 1 for addition");
+        printf("\n 2. Press 2 for subtraction");
+        printf("\n Enter your choice");
+        /* Taking users input */
+        scanf("%d", &choice);
+        
+        switch(choice)
+        {
+            case 1:
+                printf("Enter 2 numbers");
+                scanf("%d%d", &a, &b);
+                c = a + b;
+                printf("%d", c);
+                break;
+            case 2:
+                printf("Enter 2 numbers");
+                scanf("%d%d", &a, &b);
+                c = a - b;
+                printf("%d", c);
+                break;
+            default:
+                printf("you have passed a wrong key");
+                printf("\n press any key to continue");
+        }
+    } 
+} </code></pre>
+<hr>
+<h3>Difference between <code>switch</code> and <code>if</code></h3>
+<ul class="content">
+<li><code>if</code> statements can evaluate <code>float</code> conditions. <code>switch</code> statements cannot evaluate <code>float</code> conditions.</li>
+<li><code>if</code> statement can evaluate relational operators. <code>switch</code> statement cannot evaluate relational operators i.e they are not allowed in <code>switch</code> statement.</li>
+</ul>
+<hr />
+
+<div><ul class="pager">
+<li class="previous">
+<a href="DECISIONMAKING.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="CIO.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+	<footer>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <div class="navbar-text pull-left">
+  <p style="font-size:30px">&copy; C Tutorial 2019</p>
+ 
+  
+</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+	
+
+  </body>

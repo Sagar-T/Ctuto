@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="#"id="selected" >String amd Character Array</a></li>
+<li><a href="STORAGECLASSES.html" >Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html" >Introduction to Functions</a></li>
+<li><a href="TYPEOFFUNC.html" >Types of Functions and Recursion</a></li>
+<li><a href="TYPEOFFUNCCALLS.html" >Types of Function calls</a></li>
+<li><a href="PASSINGARRAYTOC.html" >Passing Array to Function</a></li>
+<li><a href="STRUCTURESINC.html" >All about Structures</a></li>
+<li><a href="TYPEDEF.html" >Typedef</a></li>
+<li><a href="UNIONSINC.html">Unions</a></li>
+</div>
+  	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+
+<h2 class="heading">String and Character Array</h2>
+<p>
+<b>String</b> is a sequence of characters that is treated as a single data item and terminated by null character <code>'\0'</code>. Remember that C language does not support strings as a data type. A <b>string</b> is actually one-dimensional array of characters in C language. These are often used to create meaningful and readable programs.</p>
+<p><b>For example:</b> The string "hello world" contains 12 characters including <code>'\0'</code> character which is automatically added by the compiler at the end of the string.</p>
+<hr />
+<h3>Declaring and Initializing a string variables</h3>
+<p>There are different ways to initialize a character array variable.</p>
+<pre class="c"><code class="language-clike">char name[13] = "StudyTonight";       // valid character array initialization
+
+char name[10] = {'L','e','s','s','o','n','s','\0'};     // valid initialization</code></pre>
+<p>Remember that when you initialize a character array by listing all of its characters separately then you must supply the <code>'\0'</code> character explicitly.</p>
+<p>Some examples of illegal initialization of character array are,</p>
+<pre class="c"><code class="language-clike">char ch[3] = "hell";    // Illegal
+
+char str[4];
+str = "hell";   // Illegal</code></pre>
+<hr />
+<h3>String Input and Output</h3>
+<p>
+Input function <code>scanf()</code> can be used with <b>%s</b> format specifier to read a string input from the terminal. But there is one problem with <code>scanf()</code> function, it terminates its input on the first white space it encounters. Therefore if you try to read an input string "Hello World" using <code>scanf()</code> function, it will only read <b>Hello</b> and terminate after encountering white spaces.</p>
+<p>However, C supports a format specification known as the <b>edit set conversion code %[..]</b> that can be used to read a line containing a variety of characters, including white spaces.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+
+void main()
+{
+    char str[20];
+    printf("Enter a string");
+    scanf("%[^\n]", &str);  //scanning the whole string, including the white spaces
+    printf("%s", str);
+}</code></pre>
+<p>Another method to read character string with white spaces from terminal is by using the <code>gets()</code> function.</p>
+<pre class="c"><code class="language-clike">char text[20];
+gets(text);
+printf("%s", text);</code></pre>
+<hr />
+<h3>String Handling Functions</h3>
+<p>
+C language supports a large number of string handling functions that can be used to carry out many of the string manipulations. These functions are packaged in <b>string.h</b> library. Hence, you must include <b>string.h</b> header file in your programs to use these functions.
+</p>
+<p>
+The following are the most commonly used string handling functions.</p>
+<p>
+<table class="table table-bordered table-striped">
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td><code>strcat()</code></td><td>It is used to concatenate(combine) two strings</td></tr>
+<tr><td><code>strlen()</code></td><td>It is used to show length of a string</td></tr>
+<tr><td><code><code>strrev()</code></td><td>It is used to show reverse of a string</td></tr>
+<tr><td><code>strcpy()</code></td><td>Copies one string into another</td></tr>
+<tr><td><code>strcmp()</code></td><td>It is used to compare two string</td></tr>
+</table>
+</p>
+<hr />
+<h4>strcat() function</h4>
+<p>
+<pre class="c"><code class="language-clike">strcat("hello", "world");</code></pre>
+<code>strcat()</code> function will add the string <b>"world"</b> to <b>"hello"</b> i.e it will ouput helloworld.
+</p>
+<hr />
+<h4>strlen() function</h4>
+<p>
+<code>strlen()</code> function will return the length of the string passed to it.</p>
+<pre class="c"><code class="language-clike">int j; 
+j = strlen("studytonight");
+printf("%d",j);</code></pre>
+<p class="output">
+12
+</p>
+<hr />
+<h4>strcmp() function</h4>
+<p>
+<code>strcmp()</code> function will return the ASCII difference between first unmatching character of two strings.</p>
+<pre class="c"><code class="language-clike">int j; 
+j = strcmp("study", "tonight");
+printf("%d",j);</code></pre>
+<p class="output">
+-1
+</p><hr />
+<h4>strcpy() function</h4>
+<p>It copies the second string argument to the first string argument.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+
+int main()
+{
+    char s1[50];
+    char s2[50];
+
+    strcpy(s1, "StudyTonight");     //copies "studytonight" to string s1
+    strcpy(s2, s1);     //copies string s1 to string s2
+
+    printf("%s\n", s2);
+    
+    return(0);
+}</code></pre>
+<p class="output">
+StudyTonight
+</p>
+<hr />
+<h4>strrev() function</h4>
+<p>It is used to reverse the given string expression.</p>
+<pre><code class="language-clike">#include&lt;stdio.h&gt;
+
+int main()
+{ 
+    char s1[50]; 
+  
+    printf("Enter your string: "); 
+    gets(s1);  
+    printf("\nYour reverse string is: %s",strrev(s1)); 
+    return(0); 
+}</code></pre>
+<p class="output">
+Enter your string: studytonight
+Your reverse string is: thginotyduts
+</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="ARRAYSANDSTRUCT.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="STORAGECLASSES.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+ </article>
+</section><!-- important for alignment-->
+
+
+<br />
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+ 
+ </body>
+</html>

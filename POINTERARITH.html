@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ADVANCEDCONCEPTS.html" >POINTERS</a></li>
+<li><a href="DANDIPOINTERS.html" >DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="POINTERTOPOINTER.html">POINTER TO POINTER</a></li>
+<li><a href="POINTERTOARRAY.html">POINTER TO ARRAY</a></li>
+<li><a href="POINTERTOSTRUCT.html" >POINTER TO STRUCTURE</a></li>
+<li><a href="#" id="selected">POINTER ARITHMETIC</a></li>
+<li><a href="POINTERWITHFUNC.html" >POINTER WITH FUNCTION</a></li>
+<li><a href="FILE.html">FILE INPUT/OUTPUT</a></li>
+<li><a href="ERRORHANDLING.html">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+<h2 class="heading">Pointer Arithmetic</h2>
+<p>If you want to have complete knowledge of pointers, pointer arithmetic is very important to understand. In this topic we will study how the memory addresses change when you increment a pointer.</p>
+<hr />
+<h3>16 bit Machine <small>(Turbo C)</small></h3>
+<p>In a 16 bit machine, size of all types of pointer, be it <code>int*</code>, <code>float*</code>, <code>char*</code> or <code>double*</code> is always <b>2 bytes</b>. But when we perform any arithmetic function like increment on a pointer, changes occur as per the size of their primitive data type.</p>
+<p><b>Size of datatypes on 16-bit Machine:</b></p>
+<table class="table table-bordered table-striped">
+<tr>
+<th>Type</th>
+<th>Size (in bytes)</th>
+</tr>
+<tr>
+<td>int or signed int</td>
+<td>2</td>
+</tr>
+<tr>
+<td>char</td>
+<td>1</td>
+</tr>
+<tr>
+<td>long</td>
+<td>4</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+</tr>
+<tr>
+<td>long double</td>
+<td>10</td>
+</tr>
+</table>
+<hr />
+<h3>Examples for Pointer Arithmetic</h3>
+<p>Now lets take a few examples and understand this more clearly.</p>
+<pre class="c"><code class="language-clike">int* i;
+i++;</code></pre>
+<p>In the above case, pointer will be of 2 bytes. And when we increment it, it will increment by 2 bytes because <code>int</code> is also of 2 bytes.</p>
+<br />
+<pre class="c"><code class="language-clike">float* i;
+i++;</code></pre>
+<p>In this case, size of pointer is still 2 bytes initially. But now, when we increment it, it will increment by 4 bytes because <code>float</code> datatype is of 4 bytes.</p>
+<br />
+<pre class="c"><code class="language-clike">double* i;
+i++;</code></pre>
+<p>Similarly, in this case, size of pointer is still 2 bytes. But now, when we increment it, it will increment by 8 bytes because its data type is <code>double</code>.</p>
+<hr />
+<h3>32 bit Machine <small>(Visual Basic C++)</small></h3>
+<p>The concept of pointer arithmetic remains exact same, but the size of pointer and various datatypes is different in a 32 bit machine. Pointer in 32 bit machine is of <b>4 bytes</b>.</p>
+<p>And, following is a table for <b>Size of datatypes on 32-bit Machine :</b></p>
+<table class="table table-bordered table-striped">
+<tr>
+<th>Type</th>
+<th>Size (in bytes)</th>
+</tr>
+<tr>
+<td>int or signed int</td>
+<td>4</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td>8</td>
+</tr>
+<tr>
+<td>double</td>
+<td>16</td>
+</tr>
+</table>
+<p><b>Note:</b> We cannot add two pointers. This is because pointers contain addresses, adding two addresses makes no sense, because you have no idea what it would point to.</p>
+<p>But we can subtract two pointers. This is because difference between two pointers gives the number of elements of its data type that can be stored between the two pointers.</p>
+<hr />
+<h3>Program for pointer arithmetic(32-bit machine)</h3>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int m = 5, n = 10, o = 0;
+
+    int *p1;
+    int *p2;
+    int *p3;
+
+    p1 = &amp;m;    //printing the address of m
+    p2 = &amp;n;    //printing the address of n
+
+    printf(&quot;p1 = %d\n&quot;, p1);
+    printf(&quot;p2 = %d\n&quot;, p2);
+
+    o = *p1+*p2;
+    printf(&quot;*p1+*p2 = %d\n&quot;, o);//point 1
+
+    p3 = p1-p2;
+    printf(&quot;p1 - p2 = %d\n&quot;, p3); //point 2
+
+    p1++;
+    printf(&quot;p1++ = %d\n&quot;, p1); //point 3
+
+    p2--;
+    printf(&quot;p2-- = %d\n&quot;, p2); //point 4
+
+    //Below line will give ERROR
+    printf(&quot;p1+p2 = %d\n&quot;, p1+p2); //point 5
+
+    return 0;
+}</code></pre>
+<p class="output">
+p1 = 2680016
+p2 = 2680012
+*p1+*p2 = 15
+p1-p2 = 1
+p1++ = 2680020
+p2-- = 2680008
+</p>
+<h4>Explanation of the above program:</h4>
+<ol class="content">
+<li><b>Point 1:</b> Here, <code>*</code> means 'value at the given address'. Thus, it adds the value of m and n which is 15.</li>
+<li><b>Point 2:</b> It subtracts the addresses of the two variables and then divides it by the size of the pointer datatype (here integer, which has size of 4 bytes) which gives us the number of elements of integer data type that can be stored within it.</li>
+<li><b>Point 3:</b> It increments the address stored by the pointer by the size of its datatype(here 4).</li>
+<li><b>Point 4:</b> It decrements the address stored by the pointer by the size of its datatype(here 4).</li>
+<li><b>Point 5:</b> Addition of two pointers is not allowed.</li>
+</ol>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="POINTERTOSTRUCT.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="POINTERWITHFUNC.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+  </body>

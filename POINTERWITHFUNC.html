@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ADVANCEDCONCEPTS.html" >POINTERS</a></li>
+<li><a href="DANDIPOINTERS.html" >DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="POINTERTOPOINTER.html">POINTER TO POINTER</a></li>
+<li><a href="POINTERTOARRAY.html">POINTER TO ARRAY</a></li>
+<li><a href="POINTERTOSTRUCT.html" >POINTER TO STRUCTURE</a></li>
+<li><a href="POINTERARITH.html">POINTER ARITHMETIC</a></li>
+<li><a href="#" id="selected" >POINTER WITH FUNCTION</a></li>
+<li><a href="FILE.html">FILE INPUT/OUTPUT</a></li>
+<li><a href="ERRORHANDLING.html">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+  
+<h2 class="heading">Pointers as Function Argument</h2>
+<p>Pointer as a function parameter is used to hold addresses of arguments passed during function call. This is also known as <b>call by reference</b>. When a function is called by reference any change made to the reference variable will effect the original variable.</p>
+<hr />
+<h4>Example Time: Swapping two numbers using Pointer</h4>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b);
+
+int main()
+{
+    int m = 10, n = 20;
+    printf(&quot;m = %d\n&quot;, m);
+    printf(&quot;n = %d\n\n&quot;, n);
+
+    swap(&amp;m, &amp;n);    //passing address of m and n to the swap function
+    printf(&quot;After Swapping:\n\n&quot;);
+    printf(&quot;m = %d\n&quot;, m);
+    printf(&quot;n = %d&quot;, n);
+    return 0;
+}
+
+/*
+    pointer 'a' and 'b' holds and 
+    points to the address of 'm' and 'n'
+*/
+void swap(int *a, int *b) 
+{
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}</code></pre>
+<p class="output">
+m = 10
+n = 20
+After Swapping:
+m = 20
+n = 10
+</p>
+<hr />
+<h3>Functions returning Pointer variables</h3>
+<p>A function can also <code>return</code> a pointer to the calling function. In this case you must be careful, because local variables of function doesn't live outside the function. They have scope only inside the function. Hence if you return a pointer connected to a local variable, that pointer will be pointing to nothing when the function ends.</p>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int* larger(int*, int*);
+
+void main()
+{
+    int a = 15;
+    int b = 92;
+    int *p;
+    p = larger(&a, &b);
+    printf("%d is larger",*p);
+}
+
+int* larger(int *x, int *y)
+{
+    if(*x > *y)
+        return x;
+    else
+        return y;
+}</code></pre>
+<p class="output">
+92 is larger
+</p>
+<hr />
+<h4>Safe ways to return a valid Pointer.</h4>
+<ol class="content">
+<li>Either use <b>argument with functions</b>. Because argument passed to the functions are declared inside the calling function, hence they will live outside the function as well.</li>
+<br /><li>Or, use <code>static</code> <b>local variables</b> inside the function and return them. As static variables have a lifetime until the <code>main()</code> function exits, therefore they will be available througout the program.</li>
+</ol>
+<hr />
+<h3>Pointer to functions</h3>
+<p>It is possible to declare a pointer pointing to a function which can then be used as an argument in another function. A pointer to a function is declared as follows,</p>
+<pre class="c"><code class="language-clike">type (*pointer-name)(parameter);</code></pre>
+<p>Here is an example :</p>
+<pre class="c"><code class="language-clike">int (*sum)();   //legal declaration of pointer to function
+int *sum();     //This is not a declaration of pointer to function</code></pre>
+<p>A function pointer can point to a specific function when it is assigned the name of that function.</p>
+<pre class="c"><code class="language-clike">int sum(int, int);
+int (*s)(int, int);
+s = sum;</code></pre>
+<p>Here <code>s</code> is a pointer to a function <code>sum</code>. Now <code>sum</code> can be called using function pointer <code>s</code> along with providing the required argument values.</p>
+<pre class="c"><code class="language-clike">s (10, 20);</code></pre>
+<hr />
+<h4>Example of Pointer to Function</h4>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int sum(int x, int y)
+{
+    return x+y;
+}
+
+int main( )
+{
+    int (*fp)(int, int);
+    fp = sum;
+    int s = fp(10, 15);
+    printf("Sum is %d", s);
+
+    return 0;
+}</code></pre>
+<p class="output">
+25</p>
+<hr />
+<h3>Complicated Function Pointer example</h3>
+<p>You will find a lot of complex function pointer examples around, lets see one such example and try to understand it.</p>
+<pre class="c"><code class="language-clike">void *(*foo) (int*);</code></pre>
+<p>It appears complex but it is very simple. In this case <code>(*foo)</code> is a pointer to the function, whose argument is of <code>int*</code> type and return type is <code>void*</code>.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="POINTERARITH.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="FILE.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script
+
+  </body>

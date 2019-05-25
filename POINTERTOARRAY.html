@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ADVANCEDCONCEPTS.html" >POINTERS</a></li>
+<li><a href="DANDIPOINTERS.html">DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="POINTERTOPOINTER.html">POINTER TO POINTER</a></li>
+<li><a href="#" id="selected">POINTER TO ARRAY</a></li>
+<li><a href="POINTERTOSTRUCT.html" >POINTER TO STRUCTURE</a></li>
+<li><a href="POINTERARITH.html">POINTER ARITHMETIC</a></li>
+<li><a href="POINTERWITHFUNC.html" >POINTER WITH FUNCTION</a></li>
+<li><a href="FILE.html">FILE INPUT/OUTPUT</a></li>
+<li><a href="ERRORHANDLING.html">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+<h3 class="heading">Pointer and Arrays</h3>
+<p>When an array is declared, compiler allocates sufficient amount of memory to contain all the elements of the array. Base address i.e address of the first element of the array is also allocated by the compiler.</p>
+<p>Suppose we declare an array <code>arr</code>,</p>
+<pre class="c"><code class="language-clike">int arr[5] = { 1, 2, 3, 4, 5 };</code></pre>
+<p>Assuming that the base address of <code>arr</code> is 1000 and each integer requires two bytes, the five elements will be stored as follows:</p>
+<p class="center"><img src="assets/img/array-in-pointer.gif" alt="address of array" /></p>
+<p>
+Here variable <code>arr</code> will give the base address, which is a constant pointer pointing to the first element of the array, <code>arr[0]</code>. Hence <code>arr</code> contains the address of <code>arr[0]</code> i.e <code>1000</code>. In short, <code>arr</code> has two purpose - it is the name of the array and it acts as a pointer pointing towards the first element in the array.</p>
+<p><blockquote>
+<code>arr</code> is equal to <code>&arr[0]</code> by default
+</blockquote>
+</p>
+<p>We can also declare a pointer of type <code>int</code> to point to the array <code>arr</code>.</p>
+<pre class="c"><code class="language-clike">int *p;
+p = arr;  
+// or, 
+p = &arr[0];    //both the statements are equivalent.
+</code></pre>
+<p>Now we can access every element of the array <code>arr</code> using <code>p++</code> to move from one element to another.</p>
+<p><b>NOTE:</b> You cannot decrement a pointer once incremented. <code>p--</code> won't work.</p>
+<hr />
+<h3>Pointer to Array</h3>
+<p>As studied above, we can use a pointer to point to an array, and then we can use that pointer to access the array elements. Lets have an example,</p>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+    int a[5] = {1, 2, 3, 4, 5};
+    int *p = a;     // same as int*p = &a[0]
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d", *p);
+        p++;
+    }
+    
+    return 0;
+}</code></pre>
+<p>In the above program, the pointer <code>*p</code> will print all the values stored in the array one by one. We can also use the Base address (<code>a</code> in above case) to act as a pointer and print all the values.</p>
+<p class="center"><img src="assets/img/pointer-to-array-details.gif" alt="Using Array name as pointer in C" /></p>
+<p>The generalized form for using pointer with an array,</p>
+<pre class="c"><code class="language-clike">*(a+i)</code></pre>
+<p>is same as:</p>
+<pre class="c"><code class="language-clike">a[i]</code></pre>
+<hr />
+<h3>Pointer to Multidimensional Array</h3>
+<p>A multidimensional array is of form, <code>a[i][j]</code>. Lets see how we can make a pointer point to such an array. As we know now, name of the array gives its base address. In <code>a[i][j]</code>, <code>a</code> will give the base address of this array, even <code>a + 0 + 0</code> will also give the base address, that is the address of <code>a[0][0]</code> element.</p>
+<p>Here is the generalized form for using pointer with multidimensional arrays.</p>
+<pre class="c"><code class="language-clike">*(*(a + i) + j)</code></pre>
+<p>which is same as,</p>
+<pre class="c"><code class="language-clike">a[i][j]</code></pre>
+<hr />
+<h3>Pointer and Character strings</h3>
+<p>Pointer can also be used to create strings. Pointer variables of <code>char</code> type are treated as string.</p>
+<pre class="c"><code class="language-clike">char *str = "Hello";</code></pre>
+<p>The above code creates a string and stores its address in the pointer variable <code>str</code>. The pointer <code>str</code> now points to the first character of the string "Hello". Another important thing to note here is that the string created using <code>char</code> pointer can be assigned a value at <b>runtime</b>.</p>
+<pre class="c"><code class="language-clike">char *str;
+str = "hello";      //this is Legal
+</code></pre>
+<p>The content of the string can be printed using <code>printf()</code> and <code>puts()</code>.</p>
+<pre class="c"><code class="language-clike">printf("%s", str);
+puts(str);</code></pre>
+<p>Notice that <code>str</code> is pointer to the string, it is also name of the string. Therefore we do not need to use indirection operator <code>*</code>.
+</p>
+<hr />
+<h3>Array of Pointers</h3>
+<p>We can also have array of pointers. Pointers are very helpful in handling character array with rows of varying length.</p>
+<pre class="c"><code class="language-clike">char *name[3] = { 
+    "Adam",
+    "chris",
+    "Deniel"
+};
+//Now lets see same array without using pointer
+char name[3][20] = { 
+    "Adam",
+    "chris",
+    "Deniel"
+};</code></pre>
+<p class="center"><img src="images/benefit-of-pointer-with-char-array.gif" alt="Pointer with character array in c" /></p>
+<p>
+In the second approach memory wastage is more, hence it is prefered to use pointer in such cases.
+</p>
+<p>When we say memory wastage, it doesn't means that the strings will start occupying less space, no, characters will take the same space, but when we define array of characters, a contiguos memory space is located equal to the maximum size of the array, which is a wastage, which can be avoided if we use pointers instead.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="POINTERTOPOINTER.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="POINTERTOSTRUCT.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list">
+<li><a href="BASICCONTENTS.html" >Features of C</a></li>
+<li><a href="CSYNTAXRULES.html">C Syntax Rules</a></li>
+<li><a href="KEYWORDSANDID.html" >Keywords and Identifier</a></li>
+<li><a href="OPERATORSINC.html" >Operators in C Language</a></li>
+<li><a href="DATATYPESINC.html" >Data Types in C</a></li>
+<li><a href="#" id="selected">Variables in C</a></li>
+<li><a href="CIO.html">C Input / Output</a></li>
+<li><a href="DECISIONMAKING.html" >Decision Making</a></li>
+<li><a href="SWITHCD.html">Switch Statement</a></li>
+<li><a href="LOOPING.html">Looping</a></li>
+</ul>
+</div>
+	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+ 
+  <article class="article">
+<h2 class="heading">Variables in C Language</h2>
+<p>When we want to store any information(data) on our computer/laptop, we store it in the computer's memory space. Instead of remembering the complex address of that memory space where we have stored our data, our operating system provides us with an option to create folders, name them, so that it becomes easier for us to find it and access it.</p>
+<p>Similarly, in C language, when we want to use some data value in our program, we can store it in a memory space and name the memory space so that it becomes easier to access it.</p>
+<p>The naming of an address is known as <b>variable</b>. Variable is the name of memory location. Unlike constant, variables are changeable, we can change value of a variable during execution of a program. A programmer can choose a meaningful variable name. Example : average, height, age, total etc.</p>
+<hr />
+<h3>Datatype of Variable</h3>
+<p>A <b>variable</b> in C language must be given a type, which defines what type of data the variable will hold.</p>
+<p>It can be:</p>
+<ul class="content">
+<li><code>char</code>: Can hold/store a character in it.</li>
+<li><code>int</code>: Used to hold an integer.</li>
+<li><code>float</code>: Used to hold a float value.</li>
+<li><code>double</code>: Used to hold a double value.</li>
+<li><code>void</code></li>
+</ul>
+<hr />
+<article>
+<h3>Rules to name a Variable</h3>
+<ol class="content">
+<li>Variable name must not start with a digit.</li>
+<li>Variable name can consist of alphabets, digits and special symbols like underscore <code>_</code>.</li>
+<li>Blank or spaces are not allowed in variable name.</li>
+<li>Keywords are not allowed as variable name.</li>
+<li>Upper and lower case names are treated as different, as C is case-sensitive, so it is suggested to keep the variable names in lower case.</li>
+</ol>
+<hr />
+<h3>Declaring, Defining and Initializing a variable</h3>
+<p><b>Declaration</b> of variables must be done before they are used in the program. Declaration does the following things.</p>
+<ol class="content">
+<li>It tells the compiler what the variable name is.</li>
+<li>It specifies what type of data the variable will hold.</li>
+<li>Until the variable is defined the compiler doesn't have to worry about allocating memory space to the variable.</li>
+<li>Declaration is more like informing the compiler that there exist a variable with following datatype which is used in the program.</li>
+<li>A variable is declared using the <code>extern</code> keyword, outside the <code>main()</code> function.</li>
+</ol>
+<pre class="c"><code class="language-clike">extern int a;
+extern float b;
+extern double c, d;</code></pre>
+<p><b>Defining</b> a variable means the compiler has to now assign a storage to the variable because it will be used in the program. It is not necessary to declare a variable using <code>extern</code> keyword, if you want to use it in your program. You can directly define a variable inside the <code>main()</code> function and use it.</p>
+<p>To define a function we must provide the datatype and the variable name. We can even define multiple variables of same datatype in a single line by using comma to separate them.</p>
+<pre class="c"><code class="language-clike">int a;
+float b, c;</code></pre>
+<p><b>Initializing</b> a variable means to provide it with a value. A variable can be initialized and defined in a single statement, like:</p>
+<pre class="c"><code class="language-clike">int a = 10;</code></pre>
+<br />
+<p>Let's write a program in which we will use some variables.</p>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+// Variable declaration(optional)
+extern int a, b;
+extern int c;
+
+int main () {
+
+    /* variable definition: */
+    int a, b;
+ 
+    /* actual initialization */
+    a = 7;
+    b = 14;
+    /* using addition operator */
+    c = a + b;
+    /* display the result */
+    printf("Sum is : %d \n", c);
+    
+    return 0;
+}</code></pre>
+<p class="output">
+Sum is : 21
+</p>
+<p>You must be thinking how does this <code>printf()</code> works, right? Do not worry, we will learn about it along with other ways to input and output datain C language in the next tutorial.</p>
+<hr />
+<h3>Difference between Variable and Identifier?</h3>
+<p>An Identifier is a name given to any variable, function, structure, pointer or any other entity in a programming language. While a variable, as we have just learned in this tutorial is a named memory location to store data which is used in the program.</p>
+<table class="table table-bordered">
+<tr><th>Identifier</th><th>Variable</th></tr>
+<tr><td>Identifier is the name given to a variable, function etc.</td>
+<td>While, variable is used to name a memory location which stores data.</td></tr>
+<tr><td>An identifier can be a variable, but not all indentifiers are variables.</td>
+<td>All variable names are identifiers.</td>
+</tr>
+<tr>
+<td>Example:
+<pre class="c"><code class="language-clike">// a variable
+int studytonight;
+// or, a function
+int studytonight() { 
+    .. 
+}</code></pre></td>
+<td>Example:
+<pre class="c"><code class="language-clike">// int variable
+int a;
+// float variable
+float a;</code></pre></td></tr>
+</table>
+<p>Another great analogy to understand the difference between Identifier and Variable is:</p>
+<div><blockquote>
+<p>You can think of an Identifier <code>int x</code> to be a variable's name, but it can also be a function's name <code>int x() { }</code> and still be an identifier.</p>
+<p>Just like <b>Obama</b> is a name of a person, but also the name of a foundation.</p>
+</blockquote>
+</div>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="DATATYPESINC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="CIO.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+	<footer>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <div class="navbar-text pull-left">
+  <p style="font-size:30px">&copy; C Tutorial 2019</p>
+ 
+  
+</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="#" id="selected" >POINTERS</a></li>
+<li><a href="DANDIPOINTERS.html" >DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="POINTERTOPOINTER.html">POINTER TO POINTER</a></li>
+<li><a href="POINTERTOARRAY.html">POINTER TO ARRAY</a></li>
+<li><a href="POINTERTOSTRUCT.html" >POINTER TO STRUCTURE</a></li>
+<li><a href="POINTERARITH.html">POINTER ARITHMETIC</a></li>
+<li><a href="POINTERWITHFUNC.html" >POINTER WITH FUNCTION</a></li>
+<li><a href="FILE.html">FILE INPUT/OUTPUT</a></li>
+<li><a href="ERRORHANDLING.html">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+<h2 class="heading">Introduction to Pointers</h2>
+<p>A Pointer in C language is a variable which holds the address of another variable of same data type.</p>
+<p>Pointers are used to access memory and manipulate the address.</p>
+<p>Pointers are one of the most distinct and exciting features of C language. It provides power and flexibility to the language. Although pointers may appear a little confusing and complicated in the beginning, but trust me, once you understand the concept, you will be able to do so much more with C language.
+</p>
+<p>Before we start understanding what pointers are and what they can do, let's start by understanding what does "Address of a memory location" means?</p>
+<hr />
+<h3>Address in C</h3>
+<p>Whenever a variable is defined in C language, a memory location is assigned for it, in which it's value will be stored. We can easily check this memory address, using the <code>&amp;</code> symbol.</p>
+<p>If <code>var</code> is the name of the variable, then <code>&var</code> will give it's address.</p>
+<p>Let's write a small program to see memory address of any variable that we define in our program.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main()
+{
+    int var = 7;
+    printf("Value of the variable var is: %d\n", var);
+    printf("Memory address of the variable var is: %x\n", &var);
+}</code></pre>
+<p class="output">
+Value of the variable var is: 7
+Memory address of the variable var is: bcc7a00
+</p>
+<p>You must have also seen in the function <code>scanf()</code>, we mention <code>&var</code> to take user input for any variable <code>var</code>.</p>
+<pre class="c"><code class="language-clike">scanf("%d", &var);</code></pre>
+<p>This is used to store the user inputted value to the address of the variable <code>var</code>.</p>
+<hr />
+<h3>Concept of Pointers</h3>
+<p>Whenever a <b>variable</b> is declared in a program, system allocates a location i.e an address to that variable in the memory, to hold the assigned value. This location has its own address number, which we just saw above.</p>
+<p>Let us assume that system has allocated memory location <code>80F</code> for a variable <code>a</code>.</p>
+<p><code>int a = 10;</code></p>
+<p class="center"><img src="assets/img/variable-storage-in-c.gif" alt="storage of variable in C" /></p>
+<p>We can access the value <code>10</code> either by using the variable name <code>a</code> or by using its address <code>80F</code>.</p>
+<p>The question is how we can access a variable using it's address? Since the memory addresses are also just numbers, they can also be assigned to some other variable. The variables which are used to hold memory addresses are called <b>Pointer variables</b>.</p>
+<p>A <b>pointer</b> variable is therefore nothing but a variable which holds an address of some other variable. And the value of a <b>pointer variable</b> gets stored in another memory location.</p>
+<p class="center"><img src="assets/img/pointer-to-variable.gif" alt="Pointer to a variable" /></p>
+<hr />
+<h3>Benefits of using pointers</h3>
+<p>Below we have listed a few benefits of using pointers:</p>
+<ol class="content">
+<li>Pointers are more efficient in handling Arrays and Structures.</li>
+<li>Pointers allow references to function and thereby helps in passing of function as arguments to other functions.</li>
+<li>It reduces length of the program and its execution time as well.</li>
+<li>It allows C language to support Dynamic Memory management.</li>
+</ol>
+<p>In the next tutorial we will learn syntax of pointers, how to declare and define a pointer, and using a pointer. See you in the next tutorial.</p>
+<hr />
+
+<div><ul class="pager">
+<li class="next">
+<a href="DANDIPOINTERS.html">Next &rarr;</a>
+</li>
+</ul></div>
+
+
+</ul></div><hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+  </body>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="STRINGSANDCHAR.html" >String amd Character Array</a></li>
+<li><a href="#" id="selected">Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html" >Introduction to Functions</a></li>
+<li><a href="TYPEOFFUNC.html" >Types of Functions and Recursion</a></li>
+<li><a href="TYPEOFFUNCCALLS.html" >Types of Function calls</a></li>
+<li><a href="PASSINGARRAYTOFUNC.html" >Passing Array to Function</a></li>
+<li><a href="STRUCTURESINC.html"> All about Structures</a></li>
+<li><a href="TYPEDEF.html">Typedef</a></li>
+<li><a href="UNIONSINC.html">Unions</a></li>
+</div>
+  	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+  
+<h2 class="heading">Storage classes in C</h2>
+<p>In C language, each variable has a storage class which decides the following things:</p>
+<ul class="content">
+<li><b>scope</b> i.e where the value of the variable would be available inside a program.</li>
+<li><b>default initial value</b> i.e if we do not explicitly initialize that variable, what will be its default initial value.</li>
+<li><b>lifetime</b> of that variable i.e for how long will that variable exist.</li>
+</ul>
+<br>
+<p>The following storage classes are most oftenly used in C programming,</p>
+<ol class="content">
+<li><b>Automatic variables</b></li>
+<li><b>External variables</b></li>
+<li><b>Static variables</b></li>
+<li><b>Register variables</b></li>
+</ol>
+<hr />
+<h3>Automatic variables: <code>auto</code></h3>
+<p><b>Scope:</b> Variable defined with <code>auto</code> storage class are local to the function block inside which they are defined.</p>
+<p><b>Default Initial Value:</b> Any random value i.e garbage value.</p>
+<p><b>Lifetime:</b> Till the end of the function/method block where the variable is defined.</p>
+<p>A variable declared inside a function without any storage class specification, is by default an <b>automatic variable</b>. They are created when a function is called and are destroyed <b>automatically</b> when the function's execution is completed. Automatic variables can also be called <b>local variables</b> because they are local to a function. By default they are assigned <b>garbage value</b> by the compiler.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+    
+void main()
+{
+    int detail;
+    // or 
+    auto int details;    //Both are same
+}</code></pre>
+<hr />
+<h3>External or Global variable</h3>
+<p><b>Scope:</b> Global i.e everywhere in the program. These variables are not bound by any function, they are available everywhere.</p>
+<p><b>Default initial value:</b> 0(zero).</p>
+<p><b>Lifetime:</b> Till the program doesn't finish its execution, you can access global variables.</p>
+<p>A variable that is declared outside any function is a <b>Global Variable</b>. Global variables remain available throughout the program execution. By default, initial value of the Global variable is 0(zero). One important thing to remember about global variable is that their values can be changed by any function in the program.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+int number;     // global variable
+
+void main()
+{
+    number = 10;
+    printf("I am in main function. My value is %d\n", number);
+    fun1();     //function calling, discussed in next topic
+    fun2();     //function calling, discussed in next topic
+}
+
+/* This is function 1 */
+fun1()
+{
+    number = 20;
+    printf("I am in function fun1. My value is %d", number);
+}
+/* This is function 1 */
+fun2()
+{
+    printf("\nI am in function fun2. My value is %d", number);
+}</code></pre>
+<p class="output">
+I am in function main. My value is 10
+I am in function fun1. My value is 20
+I am in function fun2. My value is 20
+</p>
+<p>Here the global variable <code>number</code> is available to all three functions and thus, if one function changes the value of the variable, it gets changed in every function.
+</p>
+<p><b>Note:</b> Declaring the storage class as global or external for all the variables in a program can waste a lot of memory space because these variables have a lifetime till the end of the program. Thus, variables, which are not needed till the end of the program, will still occupy the memory and thus, memory will be wasted.</p>
+<hr />
+<h3><code>extern</code> keyword</h3>
+<p>The <code>extern</code> keyword is used with a variable to inform the compiler that this variable is declared somewhere else. The <code>extern</code> declaration does not allocate storage for variables.
+</p>
+<p class="center"><img src="images/extern-keyword-in-c.gif" alt="extern keyword in c" /></p>
+<br />
+<h4>Problem when extern is not used</h4>
+<pre class="c"><code class="language-clike">int main()
+{
+    a = 10;     //Error: cannot find definition of variable 'a'
+    printf("%d", a);    
+}</code></pre>
+<br />
+<h4>Example using extern in same file</h4>
+<pre class="c"><code class="language-clike">int main()
+{
+    extern int x;   //informs the compiler that it is defined somewhere else
+    x = 10;      
+    printf("%d", x);    
+}
+int x;      //Global variable x</code></pre>
+<hr />
+<h3>Static variables</h3>
+<p><b>Scope:</b> Local to the block in which the variable is defined</p>
+<p><b>Default initial value:</b> 0(Zero).</p>
+<p><b>Lifetime:</b> Till the whole program doesn't finish its execution.</p>
+<p>
+A <code>static</code> variable tells the compiler to persist/save the variable until the end of program. Instead of creating and destroying a variable every time when it comes into and goes out of scope, <code>static</code> variable is initialized only once and remains into existence till the end of the program. A <code>static</code> variable can either be internal or external depending upon the place of declaration. Scope of <b>internal static</b> variable remains inside the function in which it is defined. <b>External static</b> variables remain restricted to scope of file in which they are declared.</p>
+<p>They are assigned <b>0 (zero)</b> as default value by the compiler.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void test();    //Function declaration (discussed in next topic)
+ 
+int main()
+{
+    test();
+    test();
+    test();
+}
+
+void test()
+{
+    static int a = 0;       //a static variable
+    a = a + 1;
+    printf("%d\t",a);
+}</code></pre>
+<p class="output">
+1 2 3
+</p>
+<hr />
+<h3>Register variable</h3>
+<p><b>Scope:</b> Local to the function in which it is declared.</p>
+<p><b>Default initial value:</b> Any random value i.e garbage value</p>
+<p><b>Lifetime:</b> Till the end of function/method block, in which the variable is defined.</p>
+<p>Register variables inform the compiler to store the variable in CPU register instead of memory. Register variables have faster accessibility than a normal variable. Generally, the frequently used variables are kept in registers. But only a few variables can be placed inside registers. One application of register storage class can be in using loops, where the variable gets used a number of times in the program, in a very short span of time.</p>
+<p><b>NOTE:</b> We can never get the address of such variables.</p>
+<p><b>Syntax :</b></p>
+<pre class="c"><code class="language-clike">register int number;</code></pre>
+<p><b>Note:</b> Even though we have declared the storage class of our variable <code>number</code> as register, we cannot surely say that the value of the variable would be stored in a register. This is because the number of registers in a CPU are limited. Also, CPU registers are meant to do a lot of important work. Thus, sometimes they may not be free. In such scenario, the variable works as if its storage class is <code>auto</code>.</p>
+<hr />
+<h3>Which storage class should be used and when</h3>
+<p>To improve the speed of execution of the program and to carefully use the memory space occupied by the variables, following points should be kept in mind while using storage classes:</p>
+<ul class="content">
+<li>We should use <code>static</code> storage class only when we want the value of the variable to remain same every time we call it using different function calls.</li>
+<li>We should use <code>register</code> storage class only for those variables that are used in our program very oftenly. CPU registers are limited and thus should be used carefully.</li>
+<li>We should use external or global storage class only for those variables that are being used by almost all the functions in the program.</li>
+<li>If we do not have the purpose of any of the above mentioned storage classes, then we should use the automatic storage class.</li>
+</ul>
+<hr>
+<div><ul class="pager">
+<li class="previous">
+<a href="STRINGSANDCHAR.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="FUNCTIONSINC.html">Next &rarr;</a>
+</li>
+</ul></div><hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+  </body>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ADVANCEDCONCEPTS.html" >POINTERS</a></li>
+<li><a href="#" id="selected">DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="POINTERTOPOINTER.html">POINTER TO POINTER</a></li>
+<li><a href="POINTERTOARRAY.html">POINTER TO ARRAY</a></li>
+<li><a href="POINTERTOSTRUCT.html" >POINTER TO STRUCTURE</a></li>
+<li><a href="POINTERARITH.html">POINTER ARITHMETIC</a></li>
+<li><a href="POINTERWITHFUNC.html" >POINTER WITH FUNCTION</a></li>
+<li><a href="FILE.html">FILE INPUT/OUTPUT</a></li>
+<li><a href="ERRORHANDLING.html">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+
+
+<h2 class="heading">Declaring, Initializing and using a pointer variable</h2>
+<p>In this tutorial, we will learn how to declare, initialize and use a pointer. We will also learn what NULL pointer are and where to use them. Let's start!</p>
+<hr />
+<h3>Declaration of Pointer variable</h3>
+<p>General syntax of pointer declaration is,</p>
+<pre class="c"><code class="language-clike">datatype *pointer_name;</code></pre>
+<p>Data type of a pointer must be same as the data type of the variable to which the pointer variable is pointing. <code>void</code> type pointer works with all data types, but is not often used.</p>
+<p>Here are a few examples:</p>
+<pre class="c"><code class="language-clike">int *ip     // pointer to integer variable
+float *fp;      // pointer to float variable
+double *dp;     // pointer to double variable
+char *cp;       // pointer to char variable</code></pre>
+<hr />
+<h3>Initialization of Pointer variable</h3>
+<p>
+<b>Pointer Initialization</b> is the process of assigning address of a variable to a <b>pointer</b> variable. Pointer variable can only contain address of a variable of the same data type. In C language <b>address operator</b> <code>&</code> is used to determine the address of a variable. The <code>&</code> (immediately preceding a variable name) returns the address of the variable associated with it.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+    
+void main()
+{
+    int a = 10;
+    int *ptr;       //pointer declaration
+    ptr = &a;       //pointer initialization
+}</code></pre>
+<p>
+Pointer variablea always point to variables of same datatype. Let's have an example to showcase this:</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main()
+{
+    float a;
+    int *ptr;
+    ptr = &a;       // ERROR, type mismatch
+}</code></pre>
+<br />
+<p>If you are not sure about which variable's address to assign to a pointer variable while declaration, it is recommended to assign a <code>NULL</code> value to your pointer variable. A pointer which is assigned a <code>NULL</code> value is called a <b>NULL pointer</b>.</p>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int main() 
+{
+    int *ptr = NULL;
+    return 0;
+}</code></pre>
+<hr />
+<h3>Using the pointer or Dereferencing of Pointer</h3>
+<p>
+Once a pointer has been assigned the address of a variable, to access the value of the variable, pointer is <b>dereferenced</b>, using the <b>indirection operator</b> or <b>dereferencing operator</b> <code>*</code>.
+</p>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, *p;  // declaring the variable and pointer
+    a = 10;
+    p = &a;     // initializing the pointer
+
+    printf("%d", *p);    //this will print the value of 'a'
+
+    printf("%d", *&a);   //this will also print the value of 'a'
+
+    printf("%u", &a);    //this will print the address of 'a'
+
+    printf("%u", p);     //this will also print the address of 'a'
+
+    printf("%u", &p);    //this will print the address of 'p'
+    
+    return 0;
+}</code></pre>
+<hr>
+<h4>Points to remember while using pointers:</h4>
+<ol class="content">
+<li>While declaring/initializing the pointer variable, <code>*</code> indicates that the variable is a pointer.</li>
+<li>The address of any variable is given by preceding the variable name with Ampersand <code>&</code>.</li>
+<li>The pointer variable stores the address of a variable. The declaration <code>int *a</code> doesn't mean that <code>a</code> is going to contain an integer value. It means that <code>a</code> is going to contain the address of a variable storing integer value.</li>
+<li>To access the value of a certain address stored by a pointer variable, <code>*</code> is used. Here, the <code>*</code> can be read as <b>'value at'</b>.</li>
+</ol>
+<hr>
+<h3>Time for an Example</h3>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i = 10;     // normal integer variable storing value 10
+    int *a;     // since '*' is used, hence its a pointer variable
+
+    /*
+        '&' returns the address of the variable 'i' 
+        which is stored in the pointer variable 'a'
+    */
+    a = &i;
+
+    /* 
+        below, address of variable 'i', which is stored 
+        by a pointer variable 'a' is displayed
+    */
+   printf("Address of variable i is %u\n", a);
+
+    /*
+        below, '*a' is read as 'value at a' 
+        which is 10
+    */
+   printf("Value at the address, which is stored by pointer variable a is %d\n", *a);
+
+   return 0;
+}</code></pre>
+<p class="output">
+Address of variable i is 2686728 (The address may vary)
+Value at an address, which is stored by pointer variable a is 10
+</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="ADVANCEDCONCEPTS.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="POINTERTOPOINTER.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

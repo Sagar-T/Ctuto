@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ADVANCEDCONCEPTS.html" >POINTERS</a></li>
+<li><a href="DANDIPOINTERS.html">DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="#" id="selected">POINTER TO POINTER</a></li>
+<li><a href="POINTERTOARRAY.html">POINTER TO ARRAY</a></li>
+<li><a href="POINTERTOSTRUCT.html" >POINTER TO STRUCTURE</a></li>
+<li><a href="POINTERARITH.html">POINTER ARITHMETIC</a></li>
+<li><a href="POINTERWITHFUNC.html" >POINTER WITH FUNCTION</a></li>
+<li><a href="FILE.html">FILE INPUT/OUTPUT</a></li>
+<li><a href="ERRORHANDLING.html">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+
+<h2 class="heading">Pointer to a Pointer(Double Pointer)</h2>
+<p>Pointers are used to store the address of other variables of similar datatype. But if you want to store the address of a pointer variable, then you again need a pointer to store it. Thus, when one pointer variable stores the address of another pointer variable, it is known as <b>Pointer to Pointer</b> variable or <b>Double Pointer</b>.</p>
+<p><b>Syntax:</b></p>
+<pre class="c"><code class="language-clike">int **p1;</code></pre>
+<p>Here, we have used two indirection operator(<code>*</code>) which stores and points to the address of a pointer variable i.e, <code>int *</code>. If we want to store the address of this (double pointer) variable <code>p1</code>, then the syntax would become:</p>
+<pre class="c"><code class="language-clike">int ***p2</code></pre>
+<hr />
+<h3>Simple program to represent Pointer to a Pointer</h3>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+int main() {
+
+    int  a = 10;
+    int  *p1;       //this can store the address of variable a</i>
+    int  **p2; 
+    /*
+        this can store the address of pointer variable p1 only. 
+        It cannot store the address of variable 'a' 
+    */
+
+    p1 = &a;
+    p2 = &p1;
+
+    printf("Address of a = %u\n", &a);
+    printf("Address of p1 = %u\n&quot;, &amp;p1);
+    printf(&quot;Address of p2 = %u\n\n&quot;, &amp;p2);
+
+    // below print statement will give the address of 'a'
+    printf(&quot;Value at the address stored by p2 = %u\n&quot;, *p2);
+    
+    printf(&quot;Value at the address stored by p1 = %d\n\n&quot;, *p1);
+
+    printf(&quot;Value of **p2 = %d\n&quot;, **p2); //read this *(*p2)
+
+    /*
+        This is not allowed, it will give a compile time error-
+        p2 = &a;
+        printf("%u", p2);
+    */
+    return 0;
+}</code></pre>
+<p class="output">
+Address of a = 2686724
+Address of p1 = 2686728
+Address of p2 = 2686732
+Value at the address stored by p2 = 2686724
+Value at the address stored by p1 = 10
+Value of **p2 = 10
+</p>
+<br />
+<h3>Explanation of the above program</h3>
+<p class="center"><img src="assets/img/pointer-to-pointer-1.gif" alt="Pointer to a Pointer" /></p>
+<br>
+<ul class="content">
+<li><code>p1</code> pointer variable can only hold the address of the variable <code>a</code> (i.e Number of indirection operator(*)-1 variable). Similarly, <code>p2</code> variable can only hold the address of variable <code>p1</code>. It cannot hold the address of variable <code>a</code>. </li>
+<li><code>*p2</code> gives us the value at an address stored by the <code>p2</code> pointer. <code>p2</code> stores the address of <code>p1</code> pointer and value at the address of <code>p1</code> is the address of variable <code>a</code>. Thus, <code>*p2</code> prints address of <code>a</code>.</li>
+<li><code>**p2</code> can be read as <code>*(*p2)</code>. Hence, it gives us the value stored at the address <code>*p2</code>. From above statement, you know <code>*p2</code> means the address of variable a. Hence, the value at the address <code>*p2</code> is 10. Thus, <code>**p2</code> prints <code>10</code>.
+</li>
+</ul>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="DANDIPOINTERS.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="POINTERTOARRAY.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

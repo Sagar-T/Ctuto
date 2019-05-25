@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ADVANCEDCONCEPTS.html" >POINTERS</a></li>
+<li><a href="DANDIPOINTERS.html">DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="POINTERTOPOINTER.html">POINTER TO POINTER</a></li>
+<li><a href="POINTERTOARRAY.html">POINTER TO ARRAY</a></li>
+<li><a href= "POINTERTOSTRUCT.html">POINTER TO STRUCTURE</a></li>
+<li><a href="POINTERARITH.html">POINTER ARITHMETIC</a></li>
+<li><a href="POINTERWITHFUNC.html" >POINTER WITH FUNCTION</a></li>
+<li><a href="FILE.html">FILE INPUT/OUTPUT</a></li>
+<li><a href="#" id="selected">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+  <div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+  
+<h3 class="heading">Error Handling in C</h3>
+<p>C language does not provide any direct support for error handling. However a few methods and variables defined in <b>error.h</b> header file can be used to point out error using the return statement in a function. In C language, a function returns <code>-1</code> or <code>NULL</code> value in case of any error and a global variable <b>errno</b> is set with the error code. So the return value can be used to check error while programming. </p>
+<hr />
+<h3>What is errno?</h3>
+<p>Whenever a function call is made in C language, a variable named <code>errno</code> is associated with it. It is a global variable, which can be used to identify which type of error was encountered while function execution, based on its value. Below we have the list of Error numbers and what does they mean.</p>
+<table class="table table-bordered">
+<tr><th>errno value</th><th>Error</th></tr>
+<tr><td>1</td><td>Operation not permitted</td></tr>
+<tr><td>2</td><td>No such file or directory</td></tr>
+<tr><td>3</td><td>No such process</td></tr>
+<tr><td>4</td><td>Interrupted system call</td></tr>
+<tr><td>5</td><td>I/O error</td></tr>
+<tr><td>6</td><td>No such device or address</td></tr>
+<tr><td>7</td><td>Argument list too long</td></tr>
+<tr><td>8</td><td>Exec format error</td></tr>
+<tr><td>9</td><td>Bad file number</td></tr>
+<tr><td>10</td><td>No child processes</td></tr>
+<tr><td>11</td><td>Try again</td></tr>
+<tr><td>12</td><td>Out of memory</td></tr>
+<tr><td>13</td><td>Permission denied</td></tr>
+</table>
+<p>C language uses the following functions to represent error messages associated with <b>errno</b>:</p>
+<ul class="content">
+<li><code>perror()</code>: returns the string passed to it along with the textual represention of the current errno value.</li>
+<li><code>strerror()</code> is defined in <b>string.h</b> library. This method returns a pointer to the string representation of the current errno value.</li>
+</ul>
+<hr />
+<h3>Time for an Example</h3>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;       
+#include &lt;errno.h&gt;       
+#include &lt;string.h&gt; 
+ 
+int main ()
+{
+    FILE *fp;
+ 
+    /* 
+        If a file, which does not exists, is opened,
+        we will get an error
+    */ 
+    fp = fopen("IWillReturnError.txt", "r");
+ 
+    printf("Value of errno: %d\n ", errno);
+    printf("The error message is : %s\n", strerror(errno));
+    perror("Message from perror");
+ 
+    return 0;
+}</code></pre>
+<p class="output">
+Value of errno: 2
+The error message is: No such file or directory
+Message from perror: No such file or directory
+</p>
+<hr />
+<h3>Other ways of Error Handling</h3>
+<p>We can also use <b>Exit Status</b> constants in the <code>exit()</code> function to inform the calling function about the error. The two constant values available for use are <code>EXIT_SUCCESS</code> and <code>EXIT_FAILURE</code>. These are nothing but macros defined <b>stdlib.h</b> header file.</p>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;       
+#include &lt;errno.h&gt;       
+#include &lt;stdlib.h&gt;       
+#include &lt;string.h&gt;       
+ 
+extern int errno;
+ 
+void main()
+{
+    char *ptr = malloc( 1000000000UL);  //requesting to allocate 1gb memory space
+    if (ptr == NULL)    //if memory not available, it will return null 
+    {  
+        puts("malloc failed");
+        puts(strerror(errno));
+        exit(EXIT_FAILURE);     //exit status failure
+    }
+    else
+    {
+        free( ptr);
+        exit(EXIT_SUCCESS);     //exit status Success      
+    }
+}</code></pre>
+<p>
+Here exit function is used to indicate exit status. Its always a good practice to exit a program with a exit status. <b>EXIT_SUCCESS</b> and <b>EXIT_FAILURE</b> are two macro used to show exit status. In case of program coming out after a successful operation <b>EXIT_SUCCESS</b> is used to show successful exit. It is defined as 0. <b>EXIT_Failure</b> is used in case of any failure in the program. It is defined as -1.</p>
+<hr />
+<h3>Division by Zero</h3>
+<p>There are some situation where nothing can be done to handle the error. In C language one such situation is division by zero. All you can do is avoid doing this, becasue if you do so, C language is not able to understand what happened, and gives a runtime error.</p>
+<p>Best way to avoid this is, to check the value of the divisor before using it in the division operations. You can use <code>if</code> condition, and if it is found to be zero, just display a message and return from the function.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="FILE.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="DMA.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+</article>
+</section><!-- important for alignment-->
+	
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>
+  </html>

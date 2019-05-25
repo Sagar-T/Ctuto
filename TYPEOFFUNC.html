@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="STRINGSANDCHAR.html" >String amd Character Array</a></li>
+<li><a href="STORAGECLASSES.html">Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html">Introduction to Functions</a></li>
+<li><a href="#" id="selected" >Types of Functions and Recursion</a></li>
+<li><a href="TYPEOFFUNCCALLS.html" >Types of Function calls</a></li>
+<li><a href="PASSINGARRAYTOFUNC.html" >Passing Array to Function</a></li>
+<li><a href="STRUCTURESINC.html"> All about Structures</a></li>
+<li><a href="TYPEDEF.html">Typedef</a></li>
+<li><a href="UNIONSINC.html">Unions</a></li>
+</div>
+	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+
+
+<h2 class="heading">Type of User-defined Functions in C</h2>
+<p>There can be 4 different types of user-defined functions, they are:</p>
+<ol class="content">
+<li>Function with no arguments and no return value</li>
+<li>Function with no arguments and a return value</li>
+<li>Function with arguments and no return value</li>
+<li>Function with arguments and a return value</li>
+</ol>
+<p>Below, we will discuss about all these types, along with program examples.</p>
+<hr />
+<h3>Function with no arguments and no return value</h3>
+<p>Such functions can either be used to display information or they are completely dependent on user inputs.</p>
+<p>Below is an example of a function, which takes 2 numbers as input from user, and display which is the greater number.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void greatNum();       // function declaration
+
+int main()
+{
+    greatNum();        // function call
+    return 0;
+}
+
+void greatNum()        // function definition
+{
+    int i, j;
+    printf("Enter 2 numbers that you want to compare...");
+    scanf("%d%d", &i, &j);
+    if(i > j) {
+        printf("The greater number is: %d", i);
+    }
+    else {
+        printf("The greater number is: %d", j);
+    }
+}</code></pre>
+<hr />
+<h3>Function with no arguments and a return value</h3>
+<p>We have modified the above example to make the function <code>greatNum()</code> return the number which is greater amongst the 2 input numbers.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+int greatNum();       // function declaration
+
+int main()
+{
+    int result;
+    result = greatNum();        // function call
+    printf("The greater number is: %d", result);
+    return 0;
+}
+
+int greatNum()        // function definition
+{
+    int i, j, greaterNum;
+    printf("Enter 2 numbers that you want to compare...");
+    scanf("%d%d", &i, &j);
+    if(i > j) {
+        greaterNum = i;
+    }
+    else {
+        greaterNum = j;
+    }
+    // returning the result
+    return greaterNum;
+}</code></pre>
+<hr />
+<h3>Function with arguments and no return value</h3>
+<p>We are using the same function as example again and again, to demonstrate that to solve a problem there can be many different ways.</p>
+<p>This time, we have modified the above example to make the function <code>greatNum()</code> take two <code>int</code> values as arguments, but it will not be returning anything.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void greatNum(int a, int b);       // function declaration
+
+int main()
+{
+    int i, j;
+    printf("Enter 2 numbers that you want to compare...");
+    scanf("%d%d", &i, &j);
+    greatNum(i, j);        // function call
+    return 0;
+}
+
+void greatNum(int x, int y)        // function definition
+{
+    if(x > y) {
+        printf("The greater number is: %d", x);
+    }
+    else {
+        printf("The greater number is: %d", y);
+    }
+}</code></pre>
+<hr />
+<h3>Function with arguments and a return value</h3>
+<p>This is the best type, as this makes the function completely independent of inputs and outputs, and only the logic is defined inside the function body.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+int greatNum(int a, int b);       // function declaration
+
+int main()
+{
+    int i, j, result;
+    printf("Enter 2 numbers that you want to compare...");
+    scanf("%d%d", &i, &j);
+    result = greatNum(i, j); // function call
+    printf("The greater number is: %d", result);
+    return 0;
+}
+
+int greatNum(int x, int y)        // function definition
+{
+    if(x > y) {
+        return x;
+    }
+    else {
+        return y;
+    }
+}</code></pre>
+<hr />
+<h3>Nesting of Functions</h3>
+<p>C language also allows nesting of functions i.e to use/call one function inside another function's body. We must be careful while using nested functions, because it may lead to infinite nesting.</p>
+<pre class="c"><code class="language-clike">
+function1()
+{
+    // function1 body here
+    
+    function2();
+    
+    // function1 body here
+}</code></pre>
+<p>If function2() also has a call for function1() inside it, then in that case, it will lead to an infinite nesting. They will keep calling each other and the program will never terminate.</p>
+<p>Not able to understand? Lets consider that inside the <code>main()</code> function, function1() is called and its execution starts, then inside function1(), we have a call for function2(), so the control of program will go to the function2(). But as function2() also has a call to function1() in its body, it will call function1(), which will again call function2(), and this will go on for infinite times, until you forcefully exit from program execution.</p>
+<hr />
+<h3>What is Recursion?</h3>
+<p>Recursion is a special way of nesting functions, where a function calls itself inside it. We must have certain conditions in the function to break out of the recursion, otherwise recursion will occur infinite times.
+</p>
+<pre class="c"><code class="language-clike">function1()
+{   
+    // function1 body
+    function1();
+    // function1 body
+}</code></pre>
+<br />
+<h4>Example: Factorial of a number using Recursion</h4>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+int factorial(int x);       //declaring the function
+
+void main()
+{
+    int a, b;
+    
+    printf("Enter a number...");
+    scanf("%d", &a);
+    b = factorial(a);       //calling the function named factorial
+    printf("%d", b);
+}
+
+int factorial(int x) //defining the function
+{
+    int r = 1;
+    if(x == 1) 
+        return 1;
+    else 
+        r = x*factorial(x-1);       //recursion, since the function calls itself
+    
+    return r;
+}</code></pre>
+<p>Similarly, there are many more applications of recursion in C language. Go to the programs section, to find out more programs using recursion.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="FUNCTIONSINC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="TYPEOFFUNCCALLS.html">Next &rarr;</a>
+</li>
+</ul></div><hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

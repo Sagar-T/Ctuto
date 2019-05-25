@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="STRINGSANDCHAR.html" >String amd Character Array</a></li>
+<li><a href="STORAGECLASSES.html">Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html">Introduction to Functions</a></li>
+<li><a href="TYPEOFFUNC.html" >Types of Functions and Recursion</a></li>
+<li><a href="TYPEOFFUNCCALLS.html" >Types of Function calls</a></li>
+<li><a href="#" id="selected" >Passing Array to Function</a></li>
+<li><a href="STRUCTURESINC.html"> All about Structures</a></li>
+<li><a href="TYPEDEF.html">Typedef</a></li>
+<li><a href="UNIONSINC.html">Unions</a></li>
+</div>
+	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  
+  <article class="article">
+<h2 class="heading">How to pass Array to a Function</h2>
+<p>Whenever we need to pass a list of elements as argument to any function in C language, it is prefered to do so using an <code>array</code>. But how can we pass an array as argument to a function? Let's see how its done.</p>
+<hr />
+<h3>Declaring Function with array as a parameter</h3>
+<p>There are two possible ways to do so, one by using call by value and other by using call by reference.</p>
+<ol class="content">
+<li>We can either have an array as a parameter.
+<pre class="c"><code class="language-clike">int sum (int arr[]);</code></pre>
+</li>
+<li>Or, we can have a pointer in the parameter list, to hold the base address of our array.
+<pre class="c"><code class="language-clike">int sum (int* ptr);</code></pre>
+<p>We will study the second way in details later when we will study pointers.</p>
+</li>
+</ol>
+<hr />
+<h3>Returning an Array from a function</h3>
+<p>We don't return an array from functions, rather we return a pointer holding the base address of the array to be returned. But we must, make sure that the array exists after the function ends i.e. the array is not local to the function.</p>
+<pre class="c"><code class="language-clike">int* sum (int x[])
+{
+    // statements
+    return x ;
+}</code></pre>
+<p>We will discuss about this when we will study pointers with arrays.</p>
+<hr />
+<h3>Passing arrays as parameter to function</h3>
+<p>Now let's see a few examples where we will pass a single array element as argument to a function, a one dimensional array to a function and a multidimensional array to a function.</p>
+<hr />
+<h4>Passing a single array element to a function</h4>
+<p>Let's write a very simple program, where we will declare and define an array of integers in our <code>main()</code> function and pass one of the array element to a function, which will just print the value of the element.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void giveMeArray(int a);
+
+int main()
+{
+    int myArray[] = { 2, 3, 4 };
+    giveMeArray(myArray[2]);        //Passing array element myArray[2] only.
+    return 0;
+}
+
+void giveMeArray(int a)
+{
+    printf("%d", a);
+}</code></pre>
+<p class="output">
+4
+</p>
+<hr />
+<h4>Passing a complete One-dimensional array to a function</h4>
+<p>To understand how this is done, let's write a function to find out average of all the elements of the array and print it.</p>
+<p>We will only send in the name of the array as argument, which is nothing but the address of the starting element of the array, or we can say the starting memory address.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+float findAverage(int marks[]);
+
+int main()
+{
+    float avg;
+    int marks[] = {99, 90, 96, 93, 95};
+    avg = findAverage(marks);       // name of the array is passed as argument.
+    printf("Average marks = %.1f", avg);
+    return 0;
+}
+
+float findAverage(int marks[])
+{
+    int i, sum = 0;
+    float avg;
+    for (i = 0; i <= 4; i++) {
+        sum += marks[i];
+    }
+    avg = (sum / 5);
+    return avg;
+}</code></pre>
+<p class="output">
+94.6
+</p>
+<hr />
+<h4>Passing a Multi-dimensional array to a function</h4>
+<p>Here again, we will only pass the name of the array as argument.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void displayArray(int arr[3][3]);
+
+int main()
+{
+    int arr[3][3], i, j;
+    printf("Please enter 9 numbers for the array: \n");
+    for (i = 0; i < 3; ++i)
+    {
+        for (j = 0; j < 3; ++j)
+        {    
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    // passing the array as argument
+    displayArray(arr);
+    return 0;
+}
+
+void displayArray(int arr[3][3])
+{
+    int i, j;
+    printf("The complete array is: \n");
+    for (i = 0; i < 3; ++i)
+    {
+        // getting cursor to new line
+        printf("\n");
+        for (j = 0; j < 3; ++j)
+        {       
+            // \t is used to provide tab space
+            printf("%d\t", arr[i][j]);
+        }
+    }
+}</code></pre>
+<p class="output">
+Please enter 9 numbers for the array:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+The complete array is:
+1 2 3
+4 5 6
+7 8 9
+</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="TYPEOFFUNCCALLS.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="STRUCTRESINC.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

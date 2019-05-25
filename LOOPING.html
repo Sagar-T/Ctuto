@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list">
+<li><a href="BASICCONTENTS.html" >Features of C</a></li>
+<li><a href="CSYNTAXRULES.html">C Syntax Rules</a></li>
+<li><a href="KEYWORDSANDID.html" >Keywords and Identifier</a></li>
+<li><a href="OPERATORSINC.html" >Operators in C Language</a></li>
+<li><a href="DATATYPESINC.html" >Data Types in C</a></li>
+<li><a href="VARIABLESINC.html" >Variables in C</a></li>
+<li><a href="CIO.html">C Input / Output</a></li>
+<li><a href="DECISIONMAKING.html" >Decision Making</a></li>
+<li><a href="SWITHCD.html" >Switch Statement</a></li>
+<li><a href="#.html" id="selected">Looping</a></li>
+</ul>
+</div>
+    	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+  <article class="article">
+<h2 class="heading">How to use Loops in C</h2>
+<p>
+In any programming language including C, loops are used to execute a set of statements repeatedly until a particular condition is satisfied.</p>
+<hr />
+<h3>How it Works</h3>
+<p>The below diagram depicts a loop execution,</p>
+<p class="center"><img src="assets/img/loops-in-c.gif" alt="loopflow diagram in C" /></p>
+<p>As per the above diagram, if the Test Condition is true, then the loop is executed, and if it is false then the execution breaks out of the loop. After the loop is successfully executed the execution again starts from the Loop entry and again checks for the Test condition, and this keeps on repeating.</p>
+<p>The sequence of statements to be executed is kept inside the curly braces <code>{ }</code> known as the <b>Loop body</b>. After every execution of the loop body, <b>condition</b> is verified, and if it is found to be <b>true</b> the loop body is executed again. When the condition check returns <b>false</b>, the loop body is not executed, and execution breaks out of the loop.</p>
+<hr />
+<h3>Types of Loop</h3>
+<p>There are 3 types of Loop in C language, namely:</p>
+<ol class="content">
+<li><code>while</code> loop</li>
+<li><code>for</code> loop</li>
+<li><code>do while</code> loop</li>
+</ol>
+<hr />
+<h3><code>while</code> loop</h3>
+<p><code>while</code> loop can be addressed as an <b>entry control</b> loop. It is completed in 3 steps.</p>
+<ul class="content">
+<li>Variable initialization.(e.g <code>int x = 0;</code>)</li>
+<li>condition(e.g <code>while(x <= 10)</code>)</li>
+<li>Variable increment or decrement ( <code>x++</code> or <code>x--</code> or <code>x = x + 2</code> )</li>
+</ul>
+<p><b>Syntax :</b></p>
+<pre class="c"><code class="language-clike">variable initialization;
+while(condition)
+{
+    statements;
+    variable increment or decrement; 
+}</code></pre>
+<br />
+<h4>Example: Program to print first 10 natural numbers</h4>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main( )
+{
+    int x;
+    x = 1;
+    while(x <= 10)
+    {
+        printf("%d\t", x);
+        /* below statement means, do x = x+1, increment x by 1*/
+        x++;
+    }
+}</code></pre>
+<p class="output">
+1 2 3 4 5 6 7 8 9 10
+</p>
+<hr />
+<h3><code>for</code> loop</h3>
+<p><code>for</code> loop is used to execute a set of statements repeatedly until a particular condition is satisfied. We can say it is an <b>open ended loop.</b>. General format is,</p>
+<pre class="c"><code class="language-clike">for(initialization; condition; increment/decrement)
+{
+    statement-block;
+}</code></pre>
+<p>In <code>for</code> loop we have exactly two semicolons, one after initialization and second after the condition. In this loop we can have more than one initialization or increment/decrement, separated using comma operator. But it can have only one <b>condition</b>.</p>
+<p>The <code>for</code> loop is executed as follows:</p>
+<ol class="content">
+<li>It first evaluates the initialization code.</li>
+<li>Then it checks the condition expression.</li>
+<li>If it is <b>true</b>, it executes the for-loop body.</li>
+<li>Then it evaluate the increment/decrement condition and again follows from step 2.</li>
+<li>When the condition expression becomes <b>false</b>, it exits the loop.</li>
+</ol>
+<br />
+<h4>Example: Program to print first 10 natural numbers</h4>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main( )
+{
+    int x;
+    for(x = 1; x <= 10; x++)
+    {
+        printf("%d\t", x);
+    }
+}</code></pre>
+<p class="output">
+1 2 3 4 5 6 7 8 9 10
+</p>
+<hr />
+<h3>Nested <code>for</code> loop</h3>
+<p>We can also have nested <code>for</code> loops, i.e one <code>for</code> loop inside another <code>for</code> loop. Basic syntax is,</p>
+<pre class="c"><code class="language-clike">for(initialization; condition; increment/decrement)
+{
+    for(initialization; condition; increment/decrement)
+    {
+        statement ;
+    }
+}</code></pre>
+<br />
+<h4>Example: Program to print half Pyramid of numbers</h4>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main( )
+{
+    int i, j;
+    /* first for loop */
+    for(i = 1; i < 5; i++)
+    {
+        printf("\n");
+        /* second for loop inside the first */
+        for(j = i; j > 0; j--)
+        {
+            printf("%d", j);
+        }
+    }
+}</code></pre>
+<p class="output">
+1
+21
+321
+4321
+54321
+</p>
+<hr />
+<h3><code>do while</code> loop</h3>
+<p>In some situations it is necessary to execute body of the loop before testing the condition. Such situations can be handled with the help of <code>do-while</code> loop. <code>do</code> statement evaluates the body of the loop first and at the end, the condition is checked using <code>while</code> statement. It means that the body of the loop will be executed at least once, even though the starting condition inside <code>while</code> is initialized to be <b>false</b>. General syntax is,</p>
+<pre class="c"><code class="language-clike">do
+{
+    .....
+    .....
+}
+while(condition)</code></pre>
+<br />
+<h4>Example: Program to print first 10 multiples of 5.</h4>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main()
+{
+    int a, i;
+    a = 5;
+    i = 1;
+    do
+    {
+        printf("%d\t", a*i);
+        i++;
+    } 
+    while(i <= 10);
+}</code></pre>
+<p class="output">
+5 10 15 20 25 30 35 40 45 50
+</p>
+<hr />
+<h3>Jumping Out of Loops</h3>
+<p>Sometimes, while executing a loop, it becomes necessary to skip a part of the loop or to leave the loop as soon as certain condition becomes <b>true</b>. This is known as jumping out of loop.
+</p>
+<h4>1) break statement </h4>
+<p>When <code>break</code> statement is encountered inside a loop, the loop is immediately exited and the program continues with the statement immediately following the loop.
+</p>
+<p class="center"><img src="images/break-statement-in-loops.gif" alt="break statement in loops in c language"></p>
+<h4>2) continue statement</h4>
+<p>It causes the control to go directly to the test-condition and then continue the loop process. On encountering <code>continue</code>, cursor leave the current cycle of loop, and starts with the next cycle.
+</p>
+<p class="center"><img src="images/continue-statement-in-loops.gif" alt="continue statement in loops in c language"></p>
+<hr />
+
+<div><ul class="pager">
+<li class="previous">
+<a href="SWITHCD.html">&larr; Prev</a>
+</li>
+
+</ul></div>
+<hr />
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+	<footer>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <div class="navbar-text pull-left">
+  <p style="font-size:30px">&copy; C Tutorial 2019</p>
+ 
+  
+</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+  </body>

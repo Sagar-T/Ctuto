@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="STRINGSANDCHAR.html" >String amd Character Array</a></li>
+<li><a href="STORAGECLASSES.html">Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html">Introduction to Functions</a></li>
+<li><a href="TYPEOFFUNC.html" >Types of Functions and Recursion</a></li>
+<li><a href="TYPEOFFUNCCALLS.html" >Types of Function calls</a></li>
+<li><a href="PASSINGARRAYTOFUNC.html">Passing Array to Function</a></li>
+<li><a href="STRUCTURESINC.html"> All about Structures</a></li>
+<li><a href="#" id="selected">Typedef</a></li>
+<li><a href="UNIONSINC.html">Unions</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+  
+<h3 class="heading">typedef in C</h3>
+
+<code>typedef</code> is a keyword used in C language to assign alternative names to existing datatypes. Its mostly used with user defined datatypes, when names of the datatypes become slightly complicated to use in programs. Following is the general syntax for using <code>typedef</code>,</p>
+<pre class="c"><code class="language-clike">typedef &lt;existing_name&gt; &lt;alias_name&gt;</code></pre>
+<p>Lets take an example and see how <code>typedef</code> actually works.</p>
+<pre class="c"><code class="language-clike">typedef unsigned long ulong;</code></pre>
+<p>The above statement define a term <code>ulong</code> for an <code>unsigned long</code> datatype. Now this <code>ulong</code> identifier can be used to define <code>unsigned long</code> type variables.</p>
+<pre class="c"><code class="language-clike">ulong i, j;</code></pre>
+<hr />
+<h3>Application of typedef</h3>
+<p><code>typedef</code> can be used to give a name to user defined data type as well. Lets see its use with structures.</p>
+<pre class="c"><code class="language-clike">
+typedef struct
+{
+    type member1;
+    type member2;
+    type member3;
+} type_name;</code></pre>
+<p>Here <b>type_name</b> represents the stucture definition associated with it. Now this <b>type_name</b> can be used to declare a variable of this stucture type.</p>
+<pre class="c"><code class="language-clike">type_name t1, t2;</code></pre>
+<hr />
+<h4>Example of Structure definition using typedef</h4>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+ 
+typedef struct employee
+{
+    char name[50];
+    int salary;
+}emp;
+ 
+void main( )
+{
+    emp e1;
+    printf("\nEnter Employee record:\n");
+    printf("\nEmployee name:\t");
+    scanf("%s", e1.name);
+    printf("\nEnter Employee salary: \t");
+    scanf("%d", &e1.salary);
+    printf("\nstudent name is %s", e1.name);
+    printf("\nroll is %d", e1.salary);
+}</code></pre>
+<hr />
+<h3><code>typedef</code> and Pointers</h3>
+<p><code>typedef</code> can be used to give an alias name to pointers also. Here we have a case in which use of <code>typedef</code> is beneficial during pointer declaration.</p>
+<p>In Pointers <code>*</code> binds to the right and not on the left.</p>
+<pre class="c"><code class="language-clike">int* x, y;</code></pre>
+<p>By this declaration statement, we are actually declaring <code>x</code> as a pointer of type <code>int</code>, whereas <code>y</code> will be declared as a plain <code>int</code> variable.</p>
+<pre class="c"><code class="language-clike">typedef int* IntPtr;
+IntPtr x, y, z;</code></pre>
+<p>But if we use <code>typedef</code> like we have used in the example above, we can declare any number of pointers in a single statement.</p>
+<p><b>NOTE:</b> If you do not have any prior knowledge of pointers, do study Pointers first.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="STRUCTURESINC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="UNIONSINC.hmtl">Next &rarr;</a>
+</li>
+</ul></div><hr />
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

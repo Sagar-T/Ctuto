@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list">
+
+<li><a href="BASICCONTENTS.html" >Features of C</a></li>
+<li><a href="CSYNTAXRULES.html">C Syntax Rules</a></li>
+<li><a href="KEYWORDSANDID.html" >Keywords and Identifier</a></li>
+<li><a href="OPERATORSINC.html" >Operators in C Language</a></li>
+<li><a href="DATATYPESINC.html" >Data Types in C</a></li>
+<li><a href="VARIABLESINC.html" >Variables in C</a></li>
+<li><a href="#" id="selected">C Input / Output</a></li>
+<li><a href="DECISIONMAKING.html">Decision Making</a></li>
+<li><a href="SWITHCD.html">Switch Statement</a></li>
+<li><a href="LOOPING.html">Looping</a></li>
+</ul>
+</div>
+  	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+  <article class="article">
+
+<h3 class="heading">C Input and Output</h3>
+<p><b>Input</b> means to provide the program with some data to be used in the program and <b>Output</b> means to display data on screen or write the data to a printer or a file.</p>
+<p>C programming language provides many built-in functions to read any given input and to display data on screen when there is a need to output the result.</p>
+<p>In this tutorial, we will learn about such functions, which can be used in our program to take input from user and to output the result on screen.</p>
+<p>All these built-in functions are present in C header files, we will also specify the name of header files in which a particular function is defined while discussing about it.</p>
+<hr />
+<h3><code>scanf()</code> and <code>printf()</code> functions</h3>
+<p>The standard input-output header file, named <code>stdio.h</code> contains the definition of the functions <code>printf()</code> and <code>scanf()</code>, which are used to display output on screen and to take input from user respectively.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main()
+{
+    // defining a variable
+    int i;
+    /* 
+        displaying message on the screen
+        asking the user to input a value
+    */
+    printf("Please enter a value...");
+    /*
+        reading the value entered by the user
+    */
+    scanf("%d", &i);
+    /*
+        displaying the number as output
+    */
+    printf( "\nYou entered: %d", i);
+}</code></pre>
+<p>When you will compile the above code, it will ask you to enter a value. When you will enter the value, it will display the value you have entered on screen.</p>
+<p>You must be wondering what is the purpose of <code>%d</code> inside the <code>scanf()</code> or <code>printf()</code> functions. It is known as <b>format string</b> and this informs the <code>scanf()</code> function, what type of input to expect and in <code>printf()</code> it is used to give a heads up to the compiler, what type of output to expect.</p>
+<table class="table table-bordered">
+<tr><th>Format String</th><th>Meaning</th></tr>
+<tr><td><code>%d</code></td><td>Scan or print an integer as signed decimal number</td></tr>
+<tr><td><code>%f</code></td><td>Scan or print a floating point number</td></tr>
+<tr><td><code>%c</code></td><td>To scan or print a character</td></tr>
+<tr><td><code>%s</code></td><td>To scan or print a character string. The scanning ends at whitespace.</td></tr>
+</table>
+<p>We can also <b>limit the number of digits or characters</b> that can be input or output, by adding a number with the format string specifier, like <code>"%1d"</code> or <code>"%3s"</code>, the first one means a single numeric digit and the second one means 3 characters, hence if you try to input <code>42</code>, while <code>scanf()</code> has <code>"%1d"</code>, it will take only <code>4</code> as input. Same is the case for output.</p>
+<p>In C Language, computer monitor, printer etc output devices are treated as files and the same process is followed to write output to these devices as would have been followed to write the output to a file.</p>
+<p><b>NOTE :</b> <code>printf()</code> function returns the number of characters printed by it, and <code>scanf()</code> returns the number of characters read by it.</p>
+<pre class="c"><code class="language-clike">int i = printf("studytonight");</code></pre>
+<p>In this program <code>printf("studytonight");</code> will return <code>12</code> as result, which will be stored in the variable <code>i</code>, because studytonight has 12 characters.</p>
+<hr />
+<h3><code>getchar()</code> & <code>putchar()</code> functions</h3>
+<p>The <code>getchar()</code> function reads a character from the terminal and returns it as an integer. This function reads only single character at a time. You can use this method in a <a href="loops-in-c.php" target="_blank">loop</a> in case you want to read more than one character. The <code>putchar()</code> function displays the character passed to it on the screen and returns the same character. This function too displays only a single character at a time. In case you want to display more than one characters, use <code>putchar()</code> method in a loop.</p>
+<pre class="c"><code class="language-clike">#include &lt;stdio.h&gt;
+
+void main( )
+{
+    int c;
+    printf("Enter a character");
+    /*
+        Take a character as input and 
+        store it in variable c
+    */
+    c = getchar();
+    /*
+        display the character stored 
+        in variable c 
+    */
+    putchar(c);
+}</code></pre>
+<p>When you will compile the above code, it will ask you to enter a value. When you will enter the value, it will display the value you have entered.</p>
+<hr />
+<h3><code>gets()</code> & <code>puts()</code> functions</h3>
+<p>The <code>gets()</code> function reads a line from <b>stdin</b>(standard input) into the buffer pointed to by <code>str</code> <a href="/pointers-in-c.php" target="_blank">pointer</a>, until either a terminating newline or EOF (end of file) occurs. The <code>puts()</code> function writes the string <code>str</code> and a trailing newline to <b>stdout</b>.</p>
+<p><code>str</code> &rarr; This is the pointer to an array of chars where the C string is stored. (Ignore if you are not able to understand this now.)</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void main()
+{
+    /* character array of length 100 */
+    char str[100];
+    printf("Enter a string");
+    gets( str );
+    puts( str );
+    getch();
+}</code></pre>
+<p>
+When you will compile the above code, it will ask you to enter a string. When you will enter the string, it will display the value you have entered.
+</p>
+<hr />
+<h3>Difference between <code>scanf()</code> and <code>gets()</code></h3>
+<p>The main difference between these two functions is that <code>scanf()</code> stops reading characters when it encounters a space, but <code>gets()</code> reads space as character too.</p>
+<p>If you enter name as <b>Study Tonight</b> using <code>scanf()</code> it will only read and store <b>Study</b> and will leave the part after space. But <code>gets()</code> function will read it completely.</p>
+<hr />
+
+<div><ul class="pager">
+<li class="previous">
+<a href="VARIABLESINC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="DECISIONMAKING.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+	<footer>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <div class="navbar-text pull-left">
+  <p style="font-size:30px">&copy; C Tutorial 2019</p>
+ 
+  
+</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+  </body>
+</html>

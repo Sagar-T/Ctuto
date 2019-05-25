@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="STRINGSANDCHAR.html" >String amd Character Array</a></li>
+<li><a href="STORAGECLASSES.html">Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html">Introduction to Functions</a></li>
+<li><a href="TYPEOFFUNC.html" >Types of Functions and Recursion</a></li>
+<li><a href="TYPEOFFUNCCALLS.html" >Types of Function calls</a></li>
+<li><a href="PASSINGARRAYTOFUNC.html">Passing Array to Function</a></li>
+<li><a href="STRUCTURESINC.html"> All about Structures</a></li>
+<li><a href="TYPEDEF.html">Typedef</a></li>
+<li><a href="#" id="selected">Unions</a></li>
+</div>
+  <div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+  
+<h2 class="heading">Unions in C Language</h2>
+<p><b>Unions</b> are conceptually similar to <b>structures</b>. The syntax to declare/define a union is also similar to that of a structure. The only differences is in terms of storage. In <b>structure</b> each member has its own storage location, whereas all members of <b>union</b> uses a single shared memory location which is equal to the size of its largest data member.</p>
+<p class="center"><img src="assets/img/union-and-structure-storage-comparison.gif" alt="Union and Structure comparison C language"></p>
+<p>This implies that although a <b>union</b> may contain many members of different types, <b>it cannot handle all the members at the same time</b>. A <b>union</b> is declared using the <code>union</code> keyword.</p>
+<pre class="c"><code class="language-clike">union item
+{
+    int m;
+    float x;
+    char c;
+}It1;</code></pre>
+<p>This declares a variable <code>It1</code> of type <code>union item</code>. This <code>union</code> contains three members each with a different data type. However only one of them can be used at a time. This is due to the fact that only one location is allocated for all the <code>union</code> variables, irrespective of their size. The compiler allocates the storage that is large enough to hold the largest variable type in the union.</p>
+<p>In the union declared above the member <code>x</code> requires <b>4 bytes</b> which is largest amongst the members for a 16-bit machine. Other members of union will share the same memory address.</p>
+<hr />
+<h3>Accessing a Union Member</h3>
+<p>Syntax for accessing any <code>union</code> member is similar to accessing structure members,</p>
+<pre class="c"><code class="language-clike">union test
+{
+    int a;
+    float b;
+    char c;
+}t;
+
+t.a;    //to access members of union t
+t.b;     
+t.c;</code></pre>
+<hr />
+<h3>Time for an Example</h3>
+<pre class="c"><code class="language-clike">
+#include &lt;stdio.h&gt;
+
+union item
+{
+    int a;
+    float b;
+    char ch;
+};
+
+int main( )
+{
+    union item it;
+    it.a = 12;
+    it.b = 20.2;
+    it.ch = 'z';
+    
+    printf("%d\n", it.a);
+    printf("%f\n", it.b);
+    printf("%c\n", it.ch);
+    
+    return 0;
+}</code></pre>
+<p class="output">
+-26426
+20.1999
+z
+</p>
+<p>As you can see here, the values of <code>a</code> and <code>b</code> get corrupted and only variable <code>c</code> prints the expected result. This is because in union, the memory is shared among different data types. Hence, the only member whose value is currently stored will have the memory.
+</p>
+<p>In the above example, value of the variable <code>c</code> was stored at last, hence the value of other variables is lost.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="TYPEDEF.html">&larr; Prev</a>
+</li>
+
+</ul></div><hr />
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+  </body>

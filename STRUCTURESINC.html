@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="STRINGSANDCHAR.html" >String amd Character Array</a></li>
+<li><a href="STORAGECLASSES.html">Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html">Introduction to Functions</a></li>
+<li><a href="TYPEOFFUNC.html" >Types of Functions and Recursion</a></li>
+<li><a href="TYPEOFFUNCCALLS.html" >Types of Function calls</a></li>
+<li><a href="PASSINGARRAYTOFUNC.html">Passing Array to Function</a></li>
+<li><a href="#" id="selected"> All about Structures</a></li>
+<li><a href="TYPEDEF.html">Typedef</a></li>
+<li><a href="UNIONSINC.html">Unions</a></li>
+</div>
+ <div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+<h2>Introduction to Structure</h2>
+<p>Structure is a user-defined datatype in C language which allows us to combine data of different types together. Structure helps to construct a complex data type which is more meaningful. It is somewhat similar to an Array, but an array holds data of similar type only. But structure on the other hand, can store data of any type, which is practical more useful.</p>
+<p><b>For example:</b> If I have to write a program to store Student information, which will have Student's name, age, branch, permanent address, father's name etc, which included string values, integer values etc, how can I use arrays for this problem, I will require something which can hold data of different types together.</p>
+<p>In structure, data is stored in form of <b>records</b>.</p>
+<hr />
+<h3>Defining a structure</h3>
+<p><code>struct</code> keyword is used to define a structure. <code>struct</code> defines a new data type which is a collection of primary and derived datatypes.</p>
+<p><b>Syntax:</b></p>
+<pre class="c"><code class="language-clike">struct [structure_tag]
+{
+    //member variable 1
+    //member variable 2
+    //member variable 3
+    ...
+}[structure_variables];</code></pre>
+<p>As you can see in the syntax above, we start with the <code>struct</code> keyword, then it's optional to provide your structure a name, we suggest you to give it a name, then inside the curly braces, we have to mention all the member variables, which are nothing but normal C language variables of different types like <code>int</code>, <code>float</code>, <code>array</code> etc.</p>
+<p>After the closing curly brace, we can specify one or more structure variables, again this is optional.</p>
+<p><b>Note:</b> The closing curly brace in the structure type declaration must be followed by a semicolon(<code>;</code>).</p>
+<h4>Example of Structure</h4>
+<pre class="c"><code class="language-clike">struct Student
+{
+    char name[25];
+    int age;
+    char branch[10];
+    // F for female and M for male
+    char gender;
+};</code></pre>
+<p>Here <code>struct Student</code> declares a structure to hold the details of a student which consists of 4 data fields, namely <code>name</code>, <code>age</code>, <code>branch</code> and <code>gender</code>. These fields are called <b>structure elements or members</b>.</p>
+<p>Each member can have different datatype, like in this case, <code>name</code> is an array of <code>char</code> type and <code>age</code> is of <code>int</code> type etc. <b>Student</b> is the name of the structure and is called as the <b>structure tag</b>.</p>
+<hr />
+<h3>Declaring Structure Variables</h3>
+<p>It is possible to declare variables of a <b>structure</b>, either along with structure definition or after the structure is defined. <b>Structure</b> variable declaration is similar to the declaration of any normal variable of any other datatype. Structure variables can be declared in following two ways:</p>
+<hr />
+<h4>1) Declaring Structure variables separately</h4>
+<pre class="c"><code class="language-clike">struct Student
+{
+    char name[25];
+    int age;
+    char branch[10];
+    //F for female and M for male
+    char gender;
+};
+
+struct Student S1, S2;      //declaring variables of struct Student</code></pre>
+<hr />
+<h4>2) Declaring Structure variables with structure definition</h4>
+<pre class="c"><code class="language-clike">struct <b>Student</b>
+{
+    char name[25];
+    int age;
+    char branch[10];
+    //F for female and M for male
+    char gender;
+}S1, S2;</code></pre>
+<p>Here <code>S1</code> and <code>S2</code> are variables of structure <code>Student</code>. However this approach is not much recommended.</p>
+<hr />
+<h3>Accessing Structure Members</h3>
+<p>Structure members can be accessed and assigned values in a number of ways. Structure members have no meaning individually without the structure. In order to assign a value to any structure member, the member name must be linked with the <b>structure</b> variable using a dot <code>.</code> operator also called <b>period</b> or <b>member access</b> operator.</p>
+<p><b>For example:</b></p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+
+struct Student
+{
+    char name[25];
+    int age;
+    char branch[10];
+    //F for female and M for male
+    char gender;
+};
+
+int main()
+{
+    struct Student s1;
+    
+    /*
+        s1 is a variable of Student type and 
+        age is a member of Student
+    */
+    s1.age = 18;
+    /*
+        using string function to add name
+    */
+    strcpy(s1.name, "Viraaj");
+    /*
+        displaying the stored values
+    */
+    printf("Name of Student 1: %s\n", s1.name);
+    printf("Age of Student 1: %d\n", s1.age);
+    
+    return 0;
+}</code></pre>
+<p class="output">
+Name of Student 1: Viraaj
+Age of Student 1: 18
+</p>
+<p>We can also use <code>scanf()</code> to give values to structure members through terminal.</p>
+<pre class="c"><code class="language-clike">scanf(" %s ", s1.name);
+scanf(" %d ", &s1.age);</code></pre>
+<hr />
+<h3>Structure Initialization</h3>
+<p>Like a variable of any other datatype, structure variable can also be initialized at compile time.</p>
+<pre class="c"><code class="language-clike">struct <b>Patient</b>
+{
+    float height;
+    int weight;  
+    int age; 
+};
+
+struct Patient p1 = { 180.75 , 73, 23 };    //initialization</code></pre>
+<p>or,</p>
+<pre class="c"><code class="language-clike">struct Patient p1;
+p1.height = 180.75;     //initialization of each member separately
+p1.weight = 73;
+p1.age = 23;</code></pre>
+<hr />
+<h3>Array of Structure</h3>
+<p>We can also declare an array of <b>structure</b> variables. in which each element of the array will represent a <b>structure</b> variable. <b>Example :</b> <code>struct employee emp[5];</code></p>
+<p>The below program defines an array <code>emp</code> of size 5. Each element of the array <code>emp</code> is of type <code>Employee</code>.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+struct Employee
+{
+    char ename[10];
+    int sal;
+};
+
+struct Employee emp[5];
+int i, j;
+void ask()
+{
+    for(i = 0; i < 3; i++)
+    {
+        printf("\nEnter %dst Employee record:\n", i+1);
+        printf("\nEmployee name:\t");
+        scanf("%s", emp[i].ename);
+        printf("\nEnter Salary:\t");
+        scanf("%d", &emp[i].sal);
+    }
+    printf("\nDisplaying Employee record:\n");
+    for(i = 0; i < 3; i++)
+    {
+        printf("\nEmployee name is %s", emp[i].ename);
+        printf("\nSlary is %d", emp[i].sal);
+    }
+}
+void main()
+{
+    ask();
+}</code></pre>
+<hr />
+<h3>Nested Structures</h3>
+<p>Nesting of structures, is also permitted in C language. Nested structures means, that one structure has another stucture as member variable.</p>
+<p><b>Example:</b></p>
+<pre class="c"><code class="language-clike">struct Student
+{
+    char[30] name;
+    int age;
+    /* here Address is a structure */
+    struct Address
+    {
+        char[50] locality;
+        char[50] city;
+        int pincode;		
+    }addr;
+};</code></pre>
+<hr />
+<h3>Structure as Function Arguments</h3>
+<p>We can pass a structure as a function argument just like we pass any other variable or an array as a function argument.</p>
+<p><b>Example:</b></p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+struct Student
+{
+    char name[10];
+    int roll;
+};
+
+void show(struct Student st);
+
+void main()
+{
+    struct Student std;
+    printf("\nEnter Student record:\n");
+    printf("\nStudent name:\t");
+    scanf("%s", std.name);
+    printf("\nEnter Student rollno.:\t");
+    scanf("%d", &std.roll);
+    show(std);
+}
+
+void show(struct Student st)
+{
+    printf("\nstudent name is %s", st.name);
+    printf("\nroll is %d", st.roll);
+}</code></pre>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="PASSINGARRAYTOFUNC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="TYPEDEF.html">Next &rarr;</a>
+</li>
+</ul></div><hr />
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

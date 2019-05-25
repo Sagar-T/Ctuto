@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ADVANCEDCONCEPTS.html" >POINTERS</a></li>
+<li><a href="DANDIPOINTERS.html" >DECLARING AND INITIALIZING POINTERS</a></li>
+<li><a href="POINTERTOPOINTER.html">POINTER TO POINTER</a></li>
+<li><a href="POINTERTOARRAY.html">POINTER TO ARRAY</a></li>
+<li><a href="POINTERTOSTRUCT.html" >POINTER TO STRUCTURE</a></li>
+<li><a href="POINTERARITH.html">POINTER ARITHMETIC</a></li>
+<li><a href= "POINTERWITHFUNC.html">POINTER WITH FUNCTION</a></li>
+<li><a href="#" id="selected">FILE INPUT/OUTPUT</a></li>
+<li><a href="ERRORHANDLING.html">ERROR HANDLING</a></li>
+<li><a href="DMA.html">DYNAMIC MEMORY ALLOCATION</a></li>
+<li><a href="COMMANDLINEARGUMENT.html">COMMAND LINE ARGUMENT</a></li>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+
+
+<h2 class="heading">File Input/Output in C</h2>
+<p>A <b>file</b> represents a sequence of bytes on the disk where a group of related data is stored. File is created for permanent storage of data. It is a ready made structure.</p>
+<p>In C language, we use a structure <b>pointer of file type</b> to declare a file.</p>
+<pre class="c"><code class="language-clike">FILE *fp;</code></pre>
+<p>C provides a number of functions that helps to perform basic file operations. Following are the functions,</p>
+<table class="table table-bordered table-striped">
+<tr><th>Function</th><th>description</th></tr>
+<tr><td>fopen()</td><td>create a new file or open a existing file</td></tr>
+<tr><td>fclose()</td><td>closes a file</td></tr>
+<tr><td>getc()</td><td>reads a character from a file</td></tr>
+<tr><td>putc()</td><td>writes a character to a file</td></tr>
+<tr><td>fscanf()</td><td>reads a set of data from a file</td></tr>
+<tr><td>fprintf()</td><td>writes a set of data to a file</td></tr>
+<tr><td>getw()</td><td>reads a integer from a file</td></tr>
+<tr><td>putw()</td><td>writes a integer to a file</td></tr>
+<tr><td>fseek()</td><td>set the position to desire point</td></tr>
+<tr><td>ftell()</td><td>gives current position in the file</td></tr>
+<tr><td>rewind()</td><td>set the position to the begining point</td></tr>
+</table>
+<hr />
+<h3>Opening a File or Creating a File</h3>
+<p>The <code>fopen()</code> function is used to create a new file or to open an existing file.</p>
+<p><b>General Syntax:</b></p>
+<pre class="c"><code class="language-clike">*fp = FILE *fopen(const char *filename, const char *mode);</code></pre>
+<p>Here, <code>*fp</code> is the FILE pointer (<code>FILE *fp</code>), which will hold the reference to the opened(or created) file.</p>
+<p><b>filename</b> is the name of the file to be opened and <b>mode</b> specifies the purpose of opening the file. Mode can be of following types,</p>
+<table class="table table-bordered table-striped">
+<tr><th>mode</th><th>description</th></tr>
+<tr><td>r</td><td>opens a text file in reading mode</td></tr>
+<tr><td>w</td><td>opens or create a text file in writing mode.</td></tr>
+<tr><td>a</td><td>opens a text file in append mode</td></tr>
+<tr><td>r+</td><td>opens a text file in both reading and writing mode</td></tr>
+<tr><td>w+</td><td>opens a text file in both reading and writing mode</td></tr>
+<tr><td>a+</td><td>opens a text file in both reading and writing mode</td></tr>
+<tr><td>rb</td><td>opens a binary file in reading mode</td></tr>
+<tr><td>wb</td><td>opens or create a binary file in writing mode</td></tr>
+<tr><td>ab</td><td>opens a binary file in append mode</td></tr>
+<tr><td>rb+</td><td>opens a binary file in both reading and writing mode</td></tr>
+<tr><td>wb+</td><td>opens a binary file in both reading and writing mode</td></tr>
+<tr><td>ab+</td><td>opens a binary file in both reading and writing mode</td></tr>
+</table>
+<hr />
+<h3>Closing a File</h3>
+<p>The <code>fclose()</code> function is used to close an already opened file.</p>
+<p><b>General Syntax :</b></p>
+<pre class="c"><code class="language-clike">int fclose( FILE *fp);</code></pre>
+<p>Here <code>fclose()</code> function closes the file and returns <b>zero</b> on success, or <b>EOF</b> if there is an error in closing the file. This <b>EOF</b> is a constant defined in the header file <b>stdio.h</b>.</p>
+<hr />
+<h3>Input/Output operation on File</h3>
+<p>In the above table we have discussed about various file I/O functions to perform reading and writing on file. <code>getc()</code> and <code>putc()</code> are the simplest functions which can be used to read and write individual characters to a file.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char ch;
+    fp = fopen("one.txt", "w");
+    printf("Enter data...");
+    while( (ch = getchar()) != EOF) {
+        putc(ch, fp);
+    }
+    fclose(fp);
+    fp = fopen("one.txt", "r");
+ 
+    while( (ch = <b>getc</b>(fp)! = EOF)
+    printf("%c",ch);
+    
+    // closing the file pointer
+    fclose(fp);
+    
+    return 0;
+}</code></pre>
+<hr />
+<h3>Reading and Writing to File using <code>fprintf()</code> and <code>fscanf()</code></h3>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+struct emp
+{
+    char name[10];
+    int age;
+};
+
+void main()
+{
+    struct emp e;
+    FILE *p,*q;
+    p = fopen("one.txt", "a");
+    q = fopen("one.txt", "r");
+    printf("Enter Name and Age:");
+    scanf("%s %d", e.name, &e.age);
+    fprintf(p,"%s %d", e.name, e.age);
+    fclose(p);
+    do
+    {
+        fscanf(q,"%s %d", e.name, e.age);
+        printf("%s %d", e.name, e.age);
+    }
+    while(!feof(q));
+}</code></pre>
+<p>In this program, we have created two FILE pointers and both are refering to the same file but in different modes.</p>
+<p><code>fprintf()</code> function directly writes into the file, while <code>fscanf()</code> reads from the file, which can then be printed on the console using standard <code>printf()</code> function.</p>
+<hr />
+<h3>Difference between Append and Write Mode</h3>
+<p>Write (w) mode and Append (a) mode, while opening a file are almost the same. Both are used to write in a file. In both the modes, new file is created if it doesn't exists already.</p>
+<p>The only difference they have is, when you <b>open</b> a file in the <b>write</b> mode, the file is reset, resulting in deletion of any data already present in the file. While in <b>append</b> mode this will not happen. Append mode is used to append or add data to the existing data of file(if any). Hence, when you open a file in Append(a) mode, the cursor is positioned at the end of the present data in the file.</p>
+<hr />
+<h3>Reading and Writing in a Binary File</h3>
+<p>A Binary file is similar to a text file, but it contains only large numerical data. The Opening modes are mentioned in the table for opening modes above.</p>
+<p><code>fread()</code> and <code>fwrite()</code> functions are used to read and write is a binary file.</p>
+<pre class="c"><code class="language-clike">fwrite(data-element-to-be-written, size_of_elements, number_of_elements, pointer-to-file);</code></pre>
+<p><code>fread()</code> is also used in the same way, with the same arguments like <code>fwrite()</code> function. Below mentioned is a simple example of writing into a binary file</p>
+<pre class="c"><code class="language-clike">const char *mytext = "The quick brown fox jumps over the lazy dog";   
+FILE *bfp= fopen("test.txt", "wb");   
+if (bfp) 
+{     
+    fwrite(mytext, sizeof(char), strlen(mytext), bfp);     
+    fclose(bfp);   
+}</code></pre>
+<hr />
+<h3><code>fseek()</code>, <code>ftell()</code> and <code>rewind()</code> functions</h3>
+<ul class="content">
+<li><code>fseek()</code>: It is used to move the reading control to different positions using fseek function.</li>
+<li><code>ftell()</code>: It tells the byte location of current position of cursor in file pointer.</li>
+<li><code>rewind()</code>: It moves the control to beginning of the file.</li>
+</ul>
+<hr />
+<h3>Some File Handling Program Examples</h3>
+<ul class="content">
+<li><a class="orange" href="/c/programs/files-and-streams/program-to-list-files-in-directory" target="_blank">List all the Files present in a Directory</a></li>
+<li><a class="orange" href="/c/programs/files-and-streams/program-to-read-data-from-file" target="_blank">Read Content of a File and Display it on screen</a></li>
+<li><a class="orange" href="/c/programs/files-and-streams/program-to-find-size-of-file" target="_blank">Finding Size of a File</a></li>
+<li><a class="orange" href="/c/programs/files-and-streams/program-to-write-in-file" target="_blank">Create a File and store Information in it</a></li>
+<li><a class="orange" href="/c/programs/files-and-streams/program-to-reverse-content-of-file" target="_blank">Reverse the Content of File and Print it</a></li>
+<li><a class="orange" href="/c/programs/files-and-streams/program-copy-file-to-another-file" target="_blank">Copy Content of one File into Another File</a></li>
+</ul>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="POINTERWITHFUNC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="ERRORHANDLING.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+
+  </body>

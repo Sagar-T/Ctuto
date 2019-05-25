@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list">
+<li><a href="BASICCONTENTS.html" >Features of C</a></li>
+<li><a href="#" id="selected">C Syntax Rules</a></li>
+<li><a href="KEYWORDSANDID.html">Keywords and Identifier</a></li>
+<li><a href="OPERATORSINC.html">Operators in C Language</a></li>
+<li><a href="DATATYPESINC.html">Data Types in C</a></li>
+<li><a href="VARIABLESINC.html">Variables in C</a></li>
+<li><a href="CIO.html">C Input / Output</a></li>
+<li><a href="DECISIONMAKING.html" >Decision Making</a></li>
+<li><a href="SWITHCD.html">Switch Statement</a></li>
+<li><a href="LOOPING.html">Looping</a></li>
+</ul>
+</div>
+
+	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+	
+
+	
+	
+	
+	
+  
+
+	
+	<h1 class="heading">C LANGUAGE SYNTAX RULES</h1>
+	<section class="article">
+	  <article>
+<p>
+C language syntax specify rules for sequence of characters to be written in C language. In simple language it states how to form statements in a C language program - How should the line of code start, how it should end, where to use double quotes, where to use curly brackets etc.</p>
+<p>The rule specify how the character sequence will be grouped together, to form <b>tokens</b>. A smallest individual unit in C program is known as <b>C Token</b>. Tokens are either keywords, identifiers, constants, variables or any symbol which has some meaning in C language. A C program can also be called as a collection of various tokens.
+</p>
+<p>In the following program,</p>
+<pre class="c"><code class="language-clike">#include <stdio.h>
+int main()
+{
+    printf("Hello,World");
+    return 0;
+}</code></pre>
+<p>if we take any one statement:</p>
+<pre class="c"><code class="language-clike">printf("Hello,World");</code></pre>
+<p>Then the tokens in this statement are&rarr; <code>printf</code>, <code>(</code>, <code>"Hello,World"</code>, <code>)</code> and <code>;</code>.</p>
+<p>So C tokens are basically the building blocks of a C program.</p>
+<hr />
+<h3>Semicolon <code>;</code></h3>
+<p>Semicolon <code>;</code> is used to mark the end of a statement and beginning of another statement. Absence of semicolon at the end of any statement, will mislead the compiler to think that this statement is not yet finished and it will add the next consecutive statement after it, which may lead to compilation(syntax) error.</p>
+<pre class="c"><code class="language-clike">#include <stdio.h>
+int main()
+{
+    printf("Hello,World")
+    return 0;
+}</code></pre>
+<p>In the above program, we have omitted the semicolon from the <code>printf("...")</code> statement, hence the compiler will think that starting from <code>printf</code> uptill the semicolon after <code>return 0</code> statement, is a single statement and this will lead to compilation error.</p>
+<hr />
+<h3>Comments</h3>
+<p>Comments are plain simple text in a C program that are not compiled by the compiler. We write comments for better understanding of the program. Though writing comments is not compulsory, but it is recommended to make your program more descriptive. It make the code more readable.
+</p>
+<p>There are two ways in which we can write comments.</p>
+<ol class="content">
+<li>Using <code>//</code></b> This is used to write a single line comment.
+</li>
+<li>Using <code>/* */</code>: The statements enclosed within <code>/*</code> and <code>*/</code> , are used to write multi-line comments.</li>
+</ol>
+<p><b>Example of comments :</b></p>
+<pre class="c"><code class="language-clike">// This is a comment
+
+/* This is a comment */
+
+/* This is a long 
+and valid comment */
+
+// this is not
+  a valid comment</code></pre>
+<hr />
+<h4>Some basic syntax rule for C program</h4>
+<p>
+<ul class="content">
+<li>C is a case sensitive language so all C instructions must be written in lower case letter.</li>
+<li>All C statement must end with a semicolon.</li>
+<li>Whitespace is used in C to describe blanks and tabs.</li>
+<li>Whitespace is required between keywords and identifiers. We will learn about keywords and identifiers in the next tutorial.</li>
+</ul>
+</p>
+<p class="center"><img src="assets/img/c-syntax-rules.gif" alt="C language syntax rules"></p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="BASICCONTENTS.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="KEYWORDSANDID.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+ </article>
+</section><!-- important for alignment-->
+	
+	
+	
+	
+	
+	
+	
+
+	<footer>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <div class="navbar-text pull-left">
+  <p style="font-size:30px">&copy; C Tutorial 2019</p>
+ 
+  
+</footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>
+</html>

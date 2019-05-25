@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list">
+<li><a href="BASICCONTENTS.html" >Features of C</a></li>
+<li><a href="CSYNTAXRULES.html">C Syntax Rules</a></li>
+<li><a href="KEYWORDSANDID.html" >Keywords and Identifier</a></li>
+<li><a href="#" id="selected">Operators in C Language</a></li>
+<li><a href="DATATYPESINC.html">Data Types in C</a></li>
+<li><a href="VARIABLESINC.html">Variables in C</a></li>
+<li><a href="CIO.html">C Input / Output</a></li>
+<li><a href="DECISIONMAKING.html" >Decision Making</a></li>
+<li><a href="SWITHCD.html">Switch Statement</a></li>
+<li><a href="LOOPING.html">Looping</a></li>
+</ul>
+</div>
+  
+  <div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+  </br>
+  <article class="article">
+    <h1 class="heading">OPERATORS IN C</h1>
+<p>
+C language supports a rich set of built-in operators. An operator is a symbol that tells the compiler to perform a certain mathematical or logical manipulation. Operators are used in programs to manipulate data and variables.
+</p>
+<p>
+C operators can be classified into following types:</p>
+<ul class="content">
+<li>Arithmetic operators</li>
+<li>Relational operators </li>
+<li>Logical operators</li>
+<li>Bitwise operators</li>
+<li>Assignment operators</li>
+<li>Conditional operators</li>
+<li>Special operators</li>
+</ul>
+<hr />
+<h3>Arithmetic operators</h3>
+<p>
+C supports all the basic arithmetic operators. The following table shows all the basic arithmetic operators.</p>
+<table class="table table-bordered table-striped">
+<tr><th>Operator</th><th>Description</th></tr>
+<tr><td>+</td><td>adds two operands</td></tr>
+<tr><td>-</td><td>subtract second operands from first</td></tr>
+<tr><td>*</td><td>multiply two operand</td></tr>
+<tr><td>/</td><td>divide numerator by denominator</td></tr>
+<tr><td>%</td><td>remainder of division</td></tr>
+<tr><td>++</td><td>Increment operator - increases integer value by one</td></tr>
+<tr><td>--</td><td>Decrement operator - decreases integer value by one</td></tr>
+</table>
+<hr />
+<h3>Relational operators</h3>
+<p>
+The following table shows all relation operators supported by C. </p>
+<table class="table table-bordered table-striped">
+<tr><th>Operator</th><th>Description</th></tr>
+<tr><td>==</td><td>Check if two operand are equal</td></tr>
+<tr><td>!=</td><td>Check if two operand are not equal.</td></tr>
+<tr><td> > </td><td>Check if operand on the left is greater than operand on the right</td></tr>
+<tr><td> < </td><td>Check operand on the left is smaller than right operand</td></tr>
+<tr><td> >= </td><td>check left operand is greater than or equal to right operand</td></tr>
+<tr><td> &lt;= </td><td>Check if operand on left is smaller than or equal to right operand</td></tr>
+</table>
+<hr />
+<h3>Logical operators</h3>
+<p>
+C language supports following 3 logical operators. Suppose <code>a = 1</code> and <code>b = 0</code>,</p>
+<table class="table table-bordered table-striped">
+<tr><th> Operator </th><th>Description</th><th>Example</th></tr>
+<tr><td> && </td><td>Logical AND</td><td>(a && b) is false</td></tr>
+<tr><td> || </td><td>Logical OR</td><td>(a || b) is true</td></tr>
+<tr><td> ! </td><td>Logical NOT</td><td>(!a) is false</td></tr>
+</table>
+<hr />
+<h3>Bitwise operators</h3>
+<p>
+Bitwise operators perform manipulations of data at <b>bit level</b>. These operators also perform <b>shifting of bits</b> from right to left. Bitwise operators are not applied to <code>float</code> or <code>double</code>(These are datatypes, we will learn about them in the next tutorial). </p>
+<table class="table table-bordered table-striped">
+<tr><th> Operator </th><th>Description</th></tr>
+<tr><td> & </td><td>Bitwise AND</td></tr>
+<tr><td> | </td><td>Bitwise OR</td></tr>
+<tr><td> ^ </td><td>Bitwise exclusive OR</td></tr>
+<tr><td> << </td><td>left shift</td></tr>
+<tr><td> >> </td><td>right shift</td></tr>
+</table>
+<p>
+Now lets see truth table for bitwise <code>&</code>, <code>|</code> and <code>^</code>
+<table class="table table-bordered table-striped">
+<tr><th> a </th><th>b</th><th>a & b</th><th>a | b</th><th>a ^ b</th></tr>
+<tr><td> 0 </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td> 0 </td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td> 1 </td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td> 1 </td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+</table>
+</p>
+<p>
+The bitwise <b>shift</b> operator, shifts the bit value. The left operand specifies the value to be shifted and the right operand specifies the number of positions that the bits in the value have to be shifted. Both operands have the same precedence.</p>
+<p><b>Example</b> :</p>
+<pre class="c"><code class="language-clike">a = 0001000
+b = 2
+a << b = 0100000 
+a >> b = 0000010 </code></pre>
+<hr />
+<h3>Assignment Operators</h3>
+<p>
+Assignment operators supported by C language are as follows.</p>
+<table class="table table-bordered table-striped">
+<tr><th> Operator </th><th>Description</th><th>Example</th></tr>
+<tr><td> = </td><td>assigns values from right side operands to left side operand</td><td>a=b</td></tr>
+<tr><td> += </td><td>adds right operand to the left operand and assign the result to left</td><td>a+=b is same as a=a+b</td></tr>
+<tr><td> -= </td><td>subtracts right operand from the left operand and assign the result to left operand</td><td>a-=b is same as a=a-b</td></tr>
+<tr><td> *= </td><td>mutiply left operand with the right operand and assign the result to left operand</td><td>a*=b is same as a=a*b </td></tr>
+<tr><td> /= </td><td>divides left operand with the right operand and assign the result to left operand</td><td>a/=b is same as a=a/b </td></tr>
+<tr><td> %= </td><td>calculate modulus using two operands and assign the result to left operand</td><td>a%=b is same as a=a%b </td></tr>
+</table>
+<hr />
+<h3>Conditional operator</h3>
+<p>The conditional operators in C language are known by two more names</p>
+<ol class="content">
+<li><b>Ternary Operator</b></li>
+<li><b>? : Operator</b></li>
+</ol>
+<p>It is actually the <code>if</code> condition that we use in C language decision making, but using conditional operator, we turn the <code>if</code> condition statement into a short and simple operator.
+</p>
+<p>The syntax of a conditional operator is :</p>
+<pre class="c"><code class="language-clike">expression 1 ? expression 2: expression 3</code></pre>
+<p><b>Explanation:</b></p>
+<ul class="content">
+<li>The question mark <b>"?"</b> in the syntax represents the <b>if</b> part.</li>
+<li>The first expression (expression 1) generally returns either true or false, based on which it is decided whether (expression 2) will be executed or (expression 3)</li>
+<li>If (expression 1) returns true then the expression on the left side of <b>" : "</b> i.e (expression 2) is executed.</li>
+<li>If (expression 1) returns false then the expression on the right side of <b>" : "</b> i.e (expression 3) is executed.</li>
+</ul>
+<hr />
+<h3>Special operator</h3>
+<table class="table table-bordered table-striped">
+<tr><th> Operator </th><th>Description</th><th>Example</th></tr>
+<tr><td> sizeof </td><td>Returns the size of an variable</td><td> <b>sizeof(x)</b> return size of the variable <b>x</b></td></tr>
+<tr><td> & </td><td>Returns the address of an variable</td><td><b>&x ;</b> return address of the variable <b>x</b></td></tr>
+<tr><td> * </td><td>Pointer to a variable</td><td><b>*x ;</b> will be pointer to a variable <b>x</b></td></tr>
+</table>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="KEYWORDSANDID.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="DATATYPESINC.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+</article>
+</section><!-- important for alignment-->
+	
+
+
+
+ 
+  
+</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/main.js"></script>
+
+  </body>
+</html>

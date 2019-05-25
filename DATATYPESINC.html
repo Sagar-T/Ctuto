@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list">
+<li><a href="BASICCONTENTS.html" >Features of C</a></li>
+<li><a href="CSYNTAXRULES.html">C Syntax Rules</a></li>
+<li><a href="KEYWORDSANDID.html" >Keywords and Identifier</a></li>
+<li><a href="OPERATORSINC.html" >Operators in C Language</a></li>
+<li><a href="#" id="selected">Data Types in C</a></li>
+<li><a href="VARIABLESINC.html">Variables in C</a></li>
+<li><a href="CIO.html">C Input / Output</a></li>
+<li><a href="DECISIONMAKING.html" >Decision Making</a></li>
+<li><a href="SWITHCD.html">Switch Statement</a></li>
+<li><a href="LOOPING.html">Looping</a></li>
+</ul>
+</div>
+  <div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+ <article class="article">
+ 
+<h2 class="heading">Data types in C Language</h2>
+<p>Data types specify how we enter data into our programs and what type of data we enter. C language has some predefined set of data types to handle various kinds of data that we can use in our program. These datatypes have different storage capacities.</p>
+<p>C language supports 2 different type of data types:</p>
+<ol class="content">
+<li><b>Primary data types</b>: <p>These are fundamental data types in C namely integer(<code>int</code>), floating point(<code>float</code>), character(<code>char</code>) and <code>void</code>.</p></li>
+<li><b>Derived data types</b>: <p>Derived data types are nothing but primary datatypes but a little twisted or grouped together like <b>array</b>, <b>stucture</b>, <b>union</b> and <b>pointer</b>. These are discussed in details later.</p></li>
+</ol>
+<p>Data type determines the type of data a variable will hold. If a
+variable <code>x</code> is declared as <code>int</code>. it means x can hold only integer values.
+Every variable which is used in the program must be declared as what
+data-type it is.</p>
+<br />
+<p class="center"><img src="assets/img/primary-data-type.gif" alt="Primary data types in c" /></p>
+<hr />
+<h3>Integer type</h3>
+<p>Integers are used to store whole numbers.</p>
+<p><b>Size and range of Integer type on 16-bit machine:</b></p>
+<table class="table table-bordered table-striped">
+<tr><th>Type</th><th>Size(bytes)</th><th>Range</th></tr>
+<tr><td>int or signed int</td><td>2</td><td>-32,768 to 32767</td></tr>
+<tr><td>unsigned int</td><td>2</td><td>0 to 65535</td></tr>
+<tr><td>short int or signed short int</td><td>1</td><td>-128 to 127</td></tr>
+<tr><td>unsigned short int</td><td>1</td><td>0 to 255</td></tr>
+<tr><td>long int or signed long int</td><td>4</td><td>-2,147,483,648 to 2,147,483,647</td></tr>
+<tr><td>unsigned long int</td><td>4</td><td>0 to 4,294,967,295</td></tr>
+</table>
+<hr />
+<h3>Floating point type</h3>
+<p>Floating types are used to store real numbers.</p>
+<p><b>Size and range of Integer type on 16-bit machine</b></p>
+<table class="table table-bordered table-striped">
+<tr><th>Type</th><th>Size(bytes)</th><th>Range</th></tr>
+<tr><td>Float</td><td>4</td><td>3.4E-38 to 3.4E+38</td></tr>
+<tr><td>double</td><td>8</td><td>1.7E-308 to 1.7E+308</td></tr>
+<tr><td>long double</td><td>10</td><td>3.4E-4932 to 1.1E+4932</td></tr>
+</table>
+<hr />
+<h3>Character type</h3>
+<p>Character types are used to store characters value.</p>
+<p><b>Size and range of Integer type on 16-bit machine</b></p>
+<table class="table table-bordered table-striped">
+<tr><th>Type</th><th>Size(bytes)</th><th>Range</th></tr>
+<tr><td>char or signed char</td><td>1</td><td>-128 to 127</td></tr>
+<tr><td>unsigned char</td><td>1</td><td>0 to 255</td></tr>
+</table>
+<hr />
+<h3>void type</h3>
+<p><code>void</code> type means no value. This is usually used to specify the type of functions which returns nothing. We will get acquainted to this datatype as we start learning more advanced topics in C language, like functions, pointers etc.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="OPERATORSINC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="VARIABLESINC.html">Next &rarr;</a>
+</li>
+</ul></div>
+<hr />
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+	<footer>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <div class="navbar-text pull-left">
+  <p style="font-size:30px">&copy; C Tutorial 2019</p>
+ 
+  
+</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>
+</html>

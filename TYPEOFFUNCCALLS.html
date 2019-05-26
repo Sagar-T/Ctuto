@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+<body >
+
+<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C tutorial</a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#about">About</a></li>
+							<li><a title="Courses" href="#services">Courses</a></li>
+							<!--<li><a title="works" href="#works">Works</a></li>
+							<li><a title="blog" href="#blog">Blog</a></li>
+							<li><a href="page.html">Page</a></li>-->
+							<li><a title="contact" href="#contact">Contact</a></li>
+							<li><a title="Login" href="#contact">Login</a></li>
+							<li><a title="Sign up" href="#contact">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	  
+	  <div id="mySidenav" class="sidenav" style="display:none;">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <!--nav bar contents-->
+<p class="card-heading font-20 roboto"><b>Basics of C Language</b></p>
+<ul id="counter-list"
+<li><a href="ARRAYFANDSTRUCT.html" >Arrays</a></li>
+<li><a href="STRINGSANDCHAR.html" >String amd Character Array</a></li>
+<li><a href="STORAGECLASSES.html">Storage Classes</a></li>
+<li><a href="FUNCTIONSINC.html">Introduction to Functions</a></li>
+<li><a href="TYPEOFFUNC.html" >Types of Functions and Recursion</a></li>
+<li><a href="#" id="selected" >Types of Function calls</a></li>
+<li><a href="PASSINGARRAYTOFUNC.html" >Passing Array to Function</a></li>
+<li><a href="STRUCTURESINC.html">All about Structures</a></li>
+<li><a href="TYPEDEF.html">Typedef</a></li>
+<li><a href="UNIONSINC.html">Unions</a></li>
+</div>
+   <div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <article class="article">
+  <article class="article">
+<h2 class="heading">Types of Function calls in C</h2>
+<p>Functions are called by their names, we all know that, then what is this tutorial for? Well if the function does not have any arguments, then to call a function you can directly use its name. But for functions with arguments, we can call a function in two different ways, based on how we specify the arguments, and these two ways are:</p>
+<ol class="content">
+<li>Call by Value</li>
+<li>Call by Reference</li>
+</ol>
+<hr />
+<h3>Call by Value</h3>
+<p>Calling a function by value means, we pass the values of the arguments which are stored or copied into the formal parameters of the function. Hence, the original values are unchanged only the parameters inside the function changes. </p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void calc(int x);
+
+int main()
+{
+    int x = 10;
+    calc(x);
+    // this will print the value of 'x'
+    printf("\nvalue of x in main is %d", x);
+    return 0;
+}
+
+void calc(int x)
+{
+    // changing the value of 'x'
+    x = x + 10 ;
+    printf("value of x in calc function is %d ", x);
+}</code></pre>
+<p class="output">
+value of x in calc function is 20
+value of x in main is 10
+</p>
+<p>In this case, the actual variable <code>x</code> is not changed. This is because we are passing the argument by value, hence a copy of <code>x</code> is passed to the function, which is updated during function execution, and that copied value in the function is destroyed when the function ends(goes out of scope). So the variable <code>x</code> inside the <code>main()</code> function is never changed and hence, still holds a value of <code>10</code>.</p>
+<p>But we can change this program to let the function modify the original <code>x</code> variable, by making the function <code>calc()</code> return a value, and storing that value in x.</p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+int calc(int x);
+
+int main()
+{
+    int x = 10;
+    x = calc(x);
+    printf("value of x is %d", x);
+    return 0;
+}
+
+int calc(int x)
+{
+    x = x + 10 ;
+    return x;
+}</code></pre>
+<p class="output">
+value of x is 20
+</p>
+<hr />
+<h3>Call by Reference</h3>
+<p>In call by reference we pass the address(reference) of a variable as argument to any function. When we pass the address of any variable as argument, then the function will have access to our variable, as it now knows where it is stored and hence can easily update its value.</p>
+<p>In this case the formal parameter can be taken as a <b>reference</b> or a <b>pointer</b>(don't worry about pointers, we will soon learn about them), in both the cases they will change the values of the original variable. </p>
+<pre class="c"><code class="language-clike">#include&lt;stdio.h&gt;
+
+void calc(int *p);      // functin taking pointer as argument
+
+int main()
+{
+    int x = 10;
+    calc(&x);       // passing address of 'x' as argument
+    printf("value of x is %d", x);
+    return(0);
+}
+
+void calc(int *p)       //receiving the address in a reference pointer variable
+{
+    /*
+        changing the value directly that is 
+        stored at the address passed
+    */
+    *p = *p + 10; 
+}</code></pre>
+<p class="output">
+value of x is 20
+</p>
+<p><b>NOTE:</b> If you do not have any prior knowledge of pointers, do study <a href="pointers-in-c.php" target="_blank">Pointers</a> first. Or just go over this topic and come back again to revise this, once you have learned about pointers.</p>
+<hr />
+<div><ul class="pager">
+<li class="previous">
+<a href="TYPEOFFUNC.html">&larr; Prev</a>
+</li>
+<li class="next">
+<a href="">Next &rarr;</a>
+</li>
+</ul></div><hr />
+
+
+
+</article>
+</section><!-- important for alignment-->
+	
+
+
+	<footer>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+  <div class="navbar-text pull-left">
+  <p style="font-size:30px">&copy; C Tutorial 2019</p>
+ 
+  
+</footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+  </body>

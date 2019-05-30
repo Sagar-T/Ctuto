@@ -44,25 +44,9 @@ CONTENTS:
 /* =========================================================
 01. General
 ============================================================ */
-.heading{
-	padding-top:20px;
-	padding-left:20px;
-	font-family:Arial;
-	font-size:3vw;
-	background-color: #f1f1f1;
-}
-.article{
-	padding-left:50px;
-	background: #f1f1f1;
-	font-size:01.vi;
-	
-}
 
-
-div, article, section, header, nav, li {
+div, article, section, header, footer, nav, li {
 	position:relative;
-	z-index:2;
-	padding-bottom:0px;
 }
 .group:after {
 	display:block;
@@ -80,7 +64,6 @@ body {
 }
 
 body {
-	z-index:-1;
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
@@ -1036,7 +1019,6 @@ footer {
 }
 
 footer a {
-	
     color: #ddd;
 }
 

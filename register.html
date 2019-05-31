@@ -1,55 +1,77 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="UTF-8" />
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
-        <title>Registration</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="description" content="Login" />
-        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
-        <meta name="author" content="Ctutorial" />
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>C Tutorial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+   <meta name="author" content="Ctutorial" />
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/color/default.css" rel="stylesheet">
+	<link rel="shortcut icon" href="assets/img/favicon.ico">
+	   
         <link rel="shortcut icon" href="../favicon.ico"> 
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
-    </head>
-    <body>
-        <div class="container">
-     
-       <header>
-                <h1></br></h1>
-			
-            <section>				
+
+</head>
+
+<body>
+	<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html">C Tutorial</a></h1>
+					<!-- navigation --></a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+						<ul id="menu-main" class="nav">
+							<li><a title="About" href="index.html">About</a></li>
+							<li><a title="Courses" href="CONTENTSSHOW.html">Courses</a></li>
+							<li><a title="Contact" href="index.html">Contact</a></li>
+							<li><a title="Login" href="login.html">Login</a></li>
+							<li><a title="Register" href="register.html">Sign up</a></li>
+							
+							
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+<header></br></br></br></br></header>
+ <div class="container">
+ <section>				
                 <div id="container_demo" >
-                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-                  <!--  <a class="hiddenanchor" id="toregister"></a>-->
-                
+                   
+                 
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="insert.php" method="post" autocomplete="on"> 
+                            <form  action="insert.php" method ="post" autocomplete="on"> 
                                 <h1>Register</h1> 
-								  <p> 
-                                    <label for="username" class="uname" data-icon="u" > Username  </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="Slayer123"/>
+								   <p> 
+                                    <label for="username" class="uname" data-icon="u" >Username </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="Slayer"/>
                                 </p>
                                 <p> 
-                                    <label for="email" class="email" data-icon="e" >Email  </label>
-                                    <input id="email" name="email" required="required" type="email" placeholder="mymail@mail.com"/>
+                                    <label for="email" class="email" data-icon="e" > Email </label>
+                                    <input id="email" name="email" required="required" type="email" placeholder="Slayer@gmail.com"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p">Password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="Inkmatters@121" /> 
+                                    <input id="password" name="password" required="required" type="password" placeholder="Inkmatter@21"/> 
                                 </p>
-								<p> 
-                                    <label for="password" class="youpasswd" data-icon="p">Confirm Password</label>
-                                    <input id="password" name="password2" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+								  <p> 
+                                    <label for="password" class="youpasswd" data-icon="p">Confirm Password </label>
+                                    <input id="password" name="password2" required="required" type="password" placeholder="Inkmatter@21"/> 
                                 </p>
                                 <p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<input type="checkbox" name="remember" id="loginkeeping" value="loginkeeping" /> 
 									<label for="loginkeeping">Keep me logged in</label>
 								</p>
                                 <p class="login button"> 
@@ -57,13 +79,29 @@
 								</p>
                                 <p class="change_link">
 									Already a member?
-									<a href="login.html">Sign in</a>
+									<a href="login.html">Login</a>
 								</p>
                             </form>
                         </div>
-    </div>
-	</div>
-	</section>
-</body>
-</head>
+
+              <footer></br></br></br></br></br></br></br></br></br></br></br></footer>
+						
+                    </div>
+                </div>  
+            </section>
+        </div>
+			<a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.nav.js"></script>
+	<script src="assets/js/jquery.localScroll.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+	<script src="assets/js/isotope.js"></script>
+	<script src="assets/js/jquery.flexslider.js"></script>
+	<script src="assets/js/inview.js"></script>
+	<script src="assets/js/animate.js"></script>
+	<script src="assets/js/custom.js"></script>
+	<script src="assets/contactform/contactform.js"></script>
+    </body>
 </html>

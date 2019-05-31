@@ -3,6 +3,8 @@ $email='';
 $password='';
 $username='';
 $password2='';
+session_start();
+
 $con = mysqli_connect('localhost', 'root', '');
     if(!$con)
     {
@@ -18,6 +20,12 @@ $con = mysqli_connect('localhost', 'root', '');
 	   $email = $_POST['email'];
     $password = md5($_POST['password']);
 	  $password2 = md5($_POST['password2']);
+	}
+	else
+	{
+		//else redirect to register only
+		header("location: register.php");
+		
 	}
 
     $check_username=mysqli_query($con,"select * from user where username='$username'");
@@ -41,7 +49,7 @@ echo "<script> alert('Oops! Password did not match! Try again.');</script>";
 	  else
 		  {  
     //insert results from the form input
-      $query = "INSERT IGNORE INTO user(username, email) VALUES('$username', '$email')";
+      $query = "INSERT IGNORE INTO user(username, password,email) VALUES('$username','$password', '$email')";
 	  
 
       $result = mysqli_query($con, $query) or die('Error querying database.');

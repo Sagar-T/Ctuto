@@ -1,3 +1,18 @@
+<?php
+session_start();
+error_reporting();
+include("connection.php");
+//echo "WELCOME" .$_SESSION['user_name'];
+$userprofile=$_SESSION['email_id'];
+
+
+if(!isset($_SESSION["email_id"])){
+ header("Location: login.php");
+}
+else
+{
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +51,11 @@
 							<li><a title="blog" href="#blog">Blog</a></li>
 							<li><a href="page.html">Page</a></li>-->
 							<li><a title="contact" href="#contact">Contact</a></li>
-							<li><a title="Login" href="login.html">Login</a></li>
+									<li><a title="login" href="login.html">Log in</a></li>
 							<li><a title="register" href="register.html">Sign up</a></li>
+						
+							
+
 							
 						</ul>
 					</nav>
@@ -134,10 +152,12 @@
 			<div class="row">
 				<div class="span3 animated-fast flyIn">
 					<div class="service-box">
-						<img src="assets/img/icons/laptop.png" onclick="alert('Coming Soon')"  alt="Web development logo" />
+						<img src="assets/img/icons/laptop.png" alt="Web development logo" onclick="alert('This content is not available yet.')" />
 						<h2>Web development</h2>
 						<p>
-							It's one of the popular job. There are two aspects of web development that will be common for all jobs: frontend and backend. Some jobs may require full-stack skills, but full-stack is merely a combination of frontend and backend. </br><b>Coming Soon</b>
+							It's one of the popular job. There are two aspects of web development that will be common for all jobs: frontend and backend. Some jobs may require full-stack skills, but full-stack is merely a combination of frontend and backend. </br>
+							<b style="font-size:25px">Coming Soon</style></b>
+						
 						</p>
 					</div>
 				</div>
@@ -302,3 +322,6 @@
 </body>
 
 </html>
+<?php
+}
+?>

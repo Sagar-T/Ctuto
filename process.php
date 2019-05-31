@@ -1,12 +1,25 @@
 
 <?php
+session_start();
 $email='';
 $password='';
-
-    //$username = $_POST['username'];
-
-	    $email = $_POST['email'];
+	 $email = $_POST['email'];
 $password = md5($_POST['password']);
+$_SESSION['email_id']=$email;
+    //$username = $_POST['username'];
+if(!isset($_SESSION['email_id'])){
+	
+	
+	//readfile('index.html');
+	//echo "welcome ".$_SESSION['email_id'];
+	//echo "<a href='logout.php'><input type=button value=logout name=logout></a>";
+	header("location: login.html");
+}
+else
+{
+	 $email = $_POST['email'];
+$password = md5($_POST['password']);
+$_SESSION['email_id']=$email;
 	
 $link = mysqli_connect("localhost", "root", "");
 //$username = stripcslashes($username);
@@ -30,12 +43,24 @@ if (!$result) {
     exit();
 }
 $row = mysqli_fetch_array($result);
+
 if($row['email'] == $email  && $row['password'] == $password){
-      	header( "refresh:0.01; url=index.html" ); 
+	
+      	
+//saving email of the logged in user
+			$email=$_SESSION['email_id']=$email;
+		//	$query="SELECT * FROM user WHERE email='$email'";
+		//	$data=mysqli_query($link,$query);
+			//$details=mysqli_fetch_assoc($data);
+			//echo $details['username'];
+				echo "welcome ".$_SESSION['email_id'];
+	echo "<a href='logout.php'><input type=button value=logout name=logout></a>";
+			//header( "refresh:0.01; url=index.html" ); 
+		
 
 }
 else{
        	header( "refresh:0.01; url=login.html" ); 
 echo "<script>alert('Email or Password is incorrect.');</script>";
-}
+}}
 ?>
